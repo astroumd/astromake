@@ -54,6 +54,10 @@ if ($?LD_PRELOAD) then
    echo "LD_PRELOAD      : $LD_PRELOAD"
 endif
 
+if ($?MANPATH) then
+   echo "MANPATH  D      : $MANPATH"
+endif
+
 
 
 
