@@ -1,41 +1,28 @@
 #! /bin/tcsh
 #
-#   for ASTROMAKE
-#
-if ! ($?IA32ROOT) then
-    setenv IA32_SAVE_PATH $PATH
-    if ($?LD_LIBRARY_PATH) then
-        setenv IA32_SAVE_LD_LIBRARY_PATH $LD_LIBRARY_PATH
-    endif
+# for astromake, hardcoded for compiler80
+
+if !($?PATH) then
+    setenv PATH $ASTROMAKE/opt/intel/compiler80/bin
 else
-    echo Caution - changes to PATH and LD_LIBRARY_PATH since IA32ROOT originally set will be lost
-    echo Saving old setting as IA32_CURRENT_PATH and IA32_CURRENT_LD_LIBRARY_PATH
-    setenv IA32_CURRENT_PATH $PATH
-    setenv IA32_CURRENT_LD_LIBRARY_PATH $LD_LIBRARY_PATH
-    endif
-
-setenv IA32ROOT $ASTROMAKE/opt/intel/compiler70/ia32
-set    _manroot=$ASTROMAKE/opt/intel/compiler70/man
-if !($?IA32_SAVE_PATH) then
-    setenv PATH $IA32ROOT/bin
-else
-    setenv PATH $IA32ROOT/bin:$IA32_SAVE_PATH
-    endif
-
-if !($?IA32_SAVE_LD_LIBRARY_PATH) then
-    setenv LD_LIBRARY_PATH $IA32ROOT/lib
-else
-    setenv LD_LIBRARY_PATH $IA32ROOT/lib:$IA32_SAVE_LD_LIBRARY_PATH
-    endif
-
-setenv INTEL_FLEXLM_LICENSE $ASTROMAKE/opt/intel/licenses
-
-# with 7.0 ?
-# setenv INTEL_LICENSE_FILE /astromake/opt/intel/licenses
-
-if ($?MANPATH) then
-  setenv MANPATH ${MANPATH}:$_manroot
-else
-  setenv MANPATH $_manroot
+    setenv PATH $ASTROMAKE/opt/intel/compiler80/bin:$PATH
 endif
-unset _manroot
+
+if !($?LD_LIBRARY_PATH) then
+    setenv LD_LIBRARY_PATH $ASTROMAKE/opt/intel/compiler80/lib
+else
+    setenv LD_LIBRARY_PATH $ASTROMAKE/opt/intel/compiler80/lib:$LD_LIBRARY_PATH
+endif
+
+if !($?MANPATH) then
+    setenv MANPATH $ASTROMAKE/opt/intel/compiler80/man:`man -w`
+else
+    setenv MANPATH $ASTROMAKE/opt/intel/compiler80/man:$MANPATH
+endif
+
+if !($?INTEL_LICENSE_FILE) then
+    setenv INTEL_LICENSE_FILE $ASTROMAKE/opt/intel/compiler80/licenses
+else
+    setenv INTEL_LICENSE_FILE $ASTROMAKE/opt/intel/compiler80/licenses:$INTEL_LICENSE_FILE
+endif
+
