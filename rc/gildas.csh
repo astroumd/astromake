@@ -1,4 +1,4 @@
 # last tested: mar99
-set path=($path /usr/local/gildas/bin)
+set path=($path $(ASTROMAKE)/opt/gildas/bin)
 rehash
 

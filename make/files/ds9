@@ -21,10 +21,10 @@ get:
 
 install:
 	cp ds9 $(BINDIR); chmod +x $(BINDIR)/ds9
-	echo $(VERSION) > /usr/local/astro/status/$(NAME)
+	echo $(VERSION) > $(ASTROMAKE)/status/$(NAME)
 
 clean:
 	rm -f $(FILE)
 
 remove:
-	rm -f /usr/local/astro/status/$(NAME) 
+	rm -f $(ASTROMAKE)/status/$(NAME) 

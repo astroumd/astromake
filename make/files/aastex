@@ -29,11 +29,11 @@ install:
 	fi
 	tar -C $(ROOT) -zxf $(FILE)
 	(cd $(ROOT)/$(NAME)$(VERSION); $(MAKE) install;  texconfig rehash)
-	echo $(VERSION) > /usr/local/astro/status/$(NAME)
+	echo $(VERSION) > $(ASTROMAKE)/status/$(NAME)
 
 clean:
 	rm -f $(FILE)
 
 remove:
 	rm -r $(ROOT)
-	rm -f /usr/local/astro/status/$(NAME)
+	rm -f $(ASTROMAKE)/status/$(NAME)

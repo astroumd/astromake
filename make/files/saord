@@ -8,7 +8,7 @@ SIZE=20.3Mb
 URL1=$(FTP)//$(FILE1)
 
 
-ROOT=/usr/local/
+ROOT=$(ASTROMAKE)/opt
 NAME=saord
 
 help:
@@ -25,11 +25,11 @@ get:
 
 install:
 	tar -C $(ROOT) -zxf $(FILE1)
-	echo $(VERSION) > /usr/local/astro/status/saord
+	echo $(VERSION) > $(ASTROMAKE)/status/$(NAME)
 
 clean:
 	rm -f $(FILE1)
 
 remove:
 	rm -rf $(ROOT)/$(NAME)
-	rm -f /usr/local/astro/status/saord
+	rm -f $(ASTROMAKE)/status/$(NAME)

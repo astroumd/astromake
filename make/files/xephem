@@ -24,13 +24,13 @@ get:
 
 install:
 	chmod +x $(FILE2); cp $(FILE2) /usr/local/bin/xephem
-	tar -C /usr/local/astro/packages -zxf $(FILE1)
-	ln -sf /usr/local/astro/packages/xephem-3.1  /usr/local/astro/packages/xephem
-	echo $(VERSION) > /usr/local/astro/status/$(NAME)
+	tar -C $(ASTROMAKE)/opt -zxf $(FILE1)
+	ln -sf $(ASTROMAKE)/opt/xephem-3.1  $(ASTROMAKE)/opt/xephem
+	echo $(VERSION) > $(ASTROMAKE)/status/$(NAME)
 
 clean:
 	rm -f $(FILE1) $(FILE2)
 
 remove:
-	rm -rf /usr/local/astro/packages/xephem*
-	rm -f /usr/local/astro/status/$(NAME)
+	rm -rf $(ASTROMAKE)/opt/xephem*
+	rm -f $(ASTROMAKE)/status/$(NAME)

@@ -8,7 +8,7 @@ URL=$(FTP)/$(FILE)
 
 
 NAME=nemo
-ROOT=/usr/local/nemo
+ROOT=$(ASTROMAKE)/opt/nemo
 
 help:
 	@echo $(NAME) $(VERSION) $(SIZE)
@@ -26,11 +26,11 @@ install:
 	  mkdir $(ROOT); \
 	fi
 	tar -C $(ROOT) -zxf $(FILE)
-	echo $(VERSION) > /usr/local/astro/status/$(NAME)
+	echo $(VERSION) > $(ASTROMAKE)/status/$(NAME)
 
 clean:
 	rm -f $(FILE)
 
 remove:
 	rm -r $(ROOT)
-	rm -f /usr/local/astro/status/$(NAME)
+	rm -f $(ASTROMAKE)/status/$(NAME)

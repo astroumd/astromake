@@ -4,7 +4,7 @@
 # will parse those packages in order
 #
 
-set _root=/usr/local/astro
+set _root=$(ASTROMAKE)
 
 if (-e $_root/status) then
   pushd $_root/rc >& /dev/null

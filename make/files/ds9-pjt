@@ -1,13 +1,12 @@
 FILE=ds9.tar.gz
-VERSION=2.0
-SIZE=7.2Mb
+VERSION=2.1b4
+SIZE=7.5Mb
 FTP=ftp://ftp.astro.umd.edu/pub/astro
-
 
 URL=$(FTP)//$(FILE)
 
 
-ROOT=/usr/local/
+ROOT=$(ASTROMAKE)/opt
 NAME=ds9
 
 help:
@@ -24,11 +23,14 @@ get:
 
 install:
 	tar -C $(ROOT) -zxf $(FILE)
-	echo $(VERSION) > /usr/local/astro/status/ds9
+	echo $(VERSION) > $(ASTROMAKE)/status/$(NAME)
+
+export:
+	tar -C $(ROOT) -zcf /tmp/$(FILE) $(NAME)
 
 clean:
 	rm -f $(FILE)
 
 remove:
 	rm -rf $(ROOT)/$(NAME)
-	rm -f /usr/local/astro/status/ds9
+	rm -f $(ASTROMAKE)/status/$(NAME)

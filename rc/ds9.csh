@@ -3,7 +3,7 @@
 
 # pjt's version is in /usr/local/ds9; also had mirds9 and bswap
 
-set path=($path /usr/local/ds9)
+set path=($path $ASTROMAKE/opt/ds9)
 rehash
 
 

@@ -11,7 +11,7 @@ SIZE=128.5Mb
 URL=$(FTP)/$(FILE)
 
 NAME=gildas
-ROOT=/usr/local/gildas
+ROOT=$(ASTROMAKE)/opt/gildas
 
 help:
 	@echo $(NAME) $(VERSION) $(SIZE)
@@ -27,11 +27,11 @@ get:
 install:
 	-mkdir $(ROOT)
 	tar -C $(ROOT) -zxf $(FILE)
-	echo $(VERSION) > /usr/local/astro/status/$(NAME)
+	echo $(VERSION) > $(ASTROMAKE)/status/$(NAME)
 
 clean:
 	rm -f $(FILE)
 
 remove:
 	rm -fr $(ROOT)
-	rm -f /usr/local/astro/status/$(NAME)
+	rm -f $(ASTROMAKE)/status/$(NAME)

@@ -3,4 +3,4 @@
 
 # pjt's version is in /usr/local/ds9 ; also had mirds9 and bswap
 
-export PATH=${PATH}:/usr/local/ds9
+export PATH=${PATH}:$ASTROMAKE/opt/ds9

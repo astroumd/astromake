@@ -5,7 +5,7 @@ SIZE=8.8Mb
 
 URL=$(FTP)/$(FILE)
 
-ROOT=/usr/local
+ROOT=$(ASTROMAKE)/opt
 NAME=karma
 
 help:
@@ -22,12 +22,12 @@ get:
 
 install:
 	tar -C $(ROOT) -zxf $(FILE)
-	echo $(VERSION) > /usr/local/astro/status/$(NAME)
+	echo $(VERSION) > $(ASTROMAKE)/status/$(NAME)
 
 clean:
 	rm -f $(FILE)
-	rm -f /usr/local/astro/status/$(NAME)
+	rm -f $(ASTROMAKE)/status/$(NAME)
 
 remove:
 	rm -rf $(ROOT)/karma
-	rm -f /usr/local/astro/status/$(NAME)
+	rm -f $(ASTROMAKE)/status/$(NAME)

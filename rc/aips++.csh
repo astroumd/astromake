@@ -1,2 +1,2 @@
 #
-source /usr/local/aips++/aipsinit.csh
+source $(ASTROMAKE)/opt/aips++/aipsinit.csh

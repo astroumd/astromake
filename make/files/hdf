@@ -6,7 +6,7 @@ SIZE=14.8Mb
 URL=$(FTP)/$(FILE)
 
 NAME=hdf
-ROOT=/usr/local/hdf
+ROOT=$(ASTROMAKE)/opt/hdf
 
 help:
 	@echo $(NAME) $(VERSION) $(SIZE)
@@ -21,7 +21,7 @@ get:
 
 install:
 	tar -C $(ROOT) -zxf $(FILE)
-	echo $(VERSION) > /usr/local/astro/status/$(NAME)
+	echo $(VERSION) > $(ASTROMAKE)/status/$(NAME)
 
 clean:
 	rm -f $(FILE)

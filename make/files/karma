@@ -28,7 +28,7 @@ get:
 install:
 	tar -C $(ROOT) -zxf $(FILE1)
 	tar -C $(ROOT) -zxf $(FILE2)
-	echo $(VERSION) > /usr/local/astro/status/$(NAME)
+	echo $(VERSION) > $(ASTROMAKE)/status/$(NAME)
 
 clean:
 	rm -f $(FILE1)
@@ -36,4 +36,4 @@ clean:
 
 remove:
 	rm -rf $(ROOT)/$(NAME)
-	rm -f /usr/local/astro/status/$(NAME)
+	rm -f $(ASTROMAKE)/status/$(NAME)

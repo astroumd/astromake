@@ -1,6 +1,6 @@
 FTP=ftp://ftp.astro.umd.edu/pub/astro
 FILE=astromake.tar.gz 
-VERSION=0.98
+VERSION=1.0
 SIZE=0.03Mb
 
 URL=$(FTP)/$(FILE)
@@ -25,11 +25,11 @@ install:
 	  mkdir $(ROOT); \
 	fi
 	tar -C $(ROOT) -zxf $(FILE)
-	cd /usr/local/astro/make; make install
-	echo $(VERSION) > /usr/local/astro/status/$(NAME)
+	cd $(ASTROMAKE)/make; make install
+	echo $(VERSION) > $(ASTROMAKE)/status/$(NAME)
 
 clean:
 	rm -f $(FILE)
 
 remove:
-	@echo "Ha, you cannot remove astromake using astromake :-)"
+	@echo "Ha, sorry, you cannot remove astromake using astromake :-)"

@@ -5,20 +5,20 @@ TARNAME = $(FTPDIR)/astromake.tar.gz
 #
 
 SRCBIN = astromake wwwget
-DESTBIN = /usr/local/bin
+DESTBIN = $(ASTROMAKE)/bin
 
-VERSION = 0.98
+VERSION = `cat ../VERSION`
 
 
 #	fake this line....
 help:
 	@echo astromake $(VERSION)
 
-export:
+export_olc:
 	echo `date` `whoami`@`hostname` > version
 	@tar -C / -zcf $(TARNAME) /usr/local/astro \
 	    --exclude /usr/local/astro/status  \
-   	    --exclude /usr/local/astro/packages
+   	    --exclude /usr/local/astro/opt
 	@echo Wrote $(TARNAME)
 
 install:

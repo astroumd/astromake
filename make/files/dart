@@ -30,12 +30,12 @@ install:
 	tar -C $(ROOT) -zxf $(FILE)
 	(cd $(ROOT); rm -f current; ln -s DaRT-v_$(VERSION) current)
 	cp $(ROOT)/current/bin/dart /usr/local/bin
-	echo $(VERSION) > /usr/local/astro/status/$(NAME)
+	echo $(VERSION) > $(ASTROMAKE)/status/$(NAME)
 
 clean:
 	rm -f $(FILE) dart
 
 remove:
 	rm -r $(ROOT)
-	rm -f /usr/local/astro/status/$(NAME)
+	rm -f $(ASTROMAKE)/status/$(NAME)
 	rm -f /usr/local/bin/dart

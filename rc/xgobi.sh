@@ -1,4 +1,4 @@
-export XGOBID=/usr/local/xgobi/
+export XGOBID=$ASTROMAKE/opt/xgobi/
 
 #alias xgobi=$XGOBID/src/xgobi
 #alias xgvis=$XGOBID/src/xgvis

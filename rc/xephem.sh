@@ -1,4 +1,5 @@
 #
 #
 #
-csh -f /usr/local/astro/rc/xephem
+#csh -f /usr/local/astro/rc/xephem
+echo No supported for SH

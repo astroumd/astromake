@@ -4,14 +4,14 @@
 #		for the correct home directory setup for your
 #		personal setup files
 #
-set _xephemdir=/usr/local/astro/packages/xephem
+set _xephemdir=$ASTROMAKE/opt/xephem
 
 if (-e $_xephemdir) then
   if (! -d $HOME/XEphem) then
     echo First time xephem user: creating $HOME/XEphem
     mkdir $HOME/XEphem
     cp $_xephemdir/GUI/xephem/XEphem.ad $HOME/XEphem/XEphem
-    ln -s /usr/local/astro/packages/xephem/GUI/xephem $HOME/XEphem
+    ln -s $ASTROMAKE/opt/xephem/GUI/xephem $HOME/XEphem
   endif
 else
   echo Problem, $_xephemdir does not exist

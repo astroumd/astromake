@@ -20,7 +20,7 @@ get:
 
 install:
 	tar -C / -zxf $(FILE)
-	echo $(VERSION) > /usr/local/astro/status/$(NAME)
+	echo $(VERSION) > $(ASTROMAKE)/status/$(NAME)
 
 clean:
 	rm -f $(FILE)
@@ -28,7 +28,7 @@ clean:
 remove:
 	rm -rf /usr/local/lib/XEphem
 	rm -f /usr/local/bin/xephem
-	rm -f /usr/local/astro/status/$(NAME)
+	rm -f $(ASTROMAKE)/status/$(NAME)
 
 make-tar:
 	tar -zcf /tmp/$(FILE) \

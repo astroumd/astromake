@@ -23,7 +23,7 @@ get:
 install:
 	tar -C / -zxf $(FILE)
 	-make -f /tmp/makefile.linux install_fifo
-	echo $(VERSION) > /usr/local/astro/status/$(NAME)
+	echo $(VERSION) > $(ASTROMAKE)/status/$(NAME)
 
 test:
 	@if [ ! -e /dev/imt0 ]; then \
@@ -34,4 +34,4 @@ clean:
 
 remove:
 	rm -f /usr/local/bin/saoimage /usr/local/man/man1/saoimage.1
-	rm -f /usr/local/astro/status/$(NAME)
+	rm -f $(ASTROMAKE)/status/$(NAME)
