@@ -6,11 +6,16 @@ help:
 
 install:	.dirs .bin
 
+update:		.update .bin 
+
 .bin:
 	(cd make; make install)
 
 .dirs:	
 	mkdir -p bin lib include opt status
+
+.update:
+	cvs update
 
 cvsu:
 	cvsu | grep ^M
