@@ -12,8 +12,8 @@ if ($?gip_root) then
    echo "GIPSY   : $gip_root"
 endif 
 
-if ($?KARMAROOT) then
-   echo "KARMA   : $KARMAROOT - version $KARMA_VERSION"
+if ($?KARMABASE) then
+   echo "KARMA   : $KARMABASE - version $KARMA_VERSION"
 endif
 
 if ($?MIR) then
