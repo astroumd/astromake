@@ -1,10 +1,14 @@
-- prevent packages being loaded multiple times
+- prevent same package being loaded multiple times
 - allow tailoring, e.g. if gipsy needs a LD_LIBRARY_PATH on
   certain machines
 	DONE:  use $ASTROMAKE/.astromake
 - clean up versioning (status vs. opt/VERSIONS) 
 - turn verbosity off (ASTROLOADED ?)
 
+- how about an 'astrounload'
+
+- add infrastructure to build packages from tar balls (ala
+  carma_tools)
 
 - don't do anything if the version requested doesnt' exist ???
 
@@ -16,3 +20,15 @@
   should do 
 	astroload -v 3.2.2 gcc
   if that is what it was used with....
+
+- allow packages to be loaded that don't have a status file?
+
+- write the rc scripts in a meta-shell, that gets compiled in the 
+  various shells that we want to support.  This way we could
+  envision more bash and sh support.
+  For some packages multi-shell support is done internally
+  (e.g. NEMO, MIRIAD, Karma) which makes this approach not as
+  useful
+
+- when loading a package, if that package depends on another package,
+  it should also be loaded....
