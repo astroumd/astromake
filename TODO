@@ -1,0 +1,18 @@
+- prevent packages being loaded multiple times
+- allow tailoring, e.g. if gipsy needs a LD_LIBRARY_PATH on
+  certain machines
+	DONE:  use $ASTROMAKE/.astromake
+- clean up versioning (status vs. opt/VERSIONS) 
+- turn verbosity off (ASTROLOADED ?)
+
+
+- don't do anything if the version requested doesnt' exist ???
+
+- figure out why -v doesn't work 1st time on grus
+
+- make dependancies, something that make should be good at.
+  e.g. if nemo was compiled with a certain compiler,
+	astroload nemo
+  should do 
+	astroload -v 3.2.2 gcc
+  if that is what it was used with....
