@@ -2,7 +2,7 @@
 FTP=http://www.journals.uchicago.edu/AAS/AASTeX/
 
 VERSION=502
-FILE=$(NAME)$(VERSION).tgz
+FILE=$(NAME)$(VERSION).tar.gz
 SIZE=0.44MB
 
 
