@@ -1,0 +1,39 @@
+FTP=ftp://ftp.atnf.csiro.au/pub/software/karma/current/
+#FTP=ftp://rigel.astro.umd.edu/pub/astro
+VERSION=1.6.30
+FILE1=i386_Linux-v$(VERSION).tar.gz
+FILE2=karma.share-v$(VERSION).tar.gz
+SIZE=9.2Mb
+
+
+URL1=$(FTP)/$(FILE1)
+URL2=$(FTP)/$(FILE2)
+
+ROOT=/usr/local/
+NAME=karma
+
+help:
+	@echo $(NAME) $(VERSION) $(SIZE)
+
+url:
+	@echo http://www.atnf.csiro.au/karma/
+
+all:	get install clean
+
+get:
+	wwwget $(URL1)
+	wwwget $(URL2)
+
+
+install:
+	tar -C $(ROOT) -zxf $(FILE1)
+	tar -C $(ROOT) -zxf $(FILE2)
+	echo $(VERSION) > /usr/local/astro/status/$(NAME)
+
+clean:
+	rm -f $(FILE1)
+	rm -f $(FILE2)
+
+remove:
+	rm -rf $(ROOT)/$(NAME)
+	rm -f /usr/local/astro/status/$(NAME)
