@@ -1,0 +1,30 @@
+FTP=ftp://hdf.ncsa.uiuc.edu/HDF/HDF_Current/bin/linux/
+VERSION=4.1r4
+FILE=$(VERSION)_linux.tar.gz
+SIZE=14.8Mb
+
+URL=$(FTP)/$(FILE)
+
+NAME=hdf
+ROOT=/usr/local/hdf
+
+help:
+	@echo $(NAME) $(VERSION) $(SIZE)
+
+url:
+	@echo http://hdf.ncsa.uiuc.edu/
+
+all:	get install clean
+
+get:
+	wwwget $(URL)
+
+install:
+	tar -C $(ROOT) -zxf $(FILE)
+	echo $(VERSION) > /usr/local/astro/status/$(NAME)
+
+clean:
+	rm -f $(FILE)
+
+remove:
+	rm -f $(ROOT)/$(VERSION)_linux
