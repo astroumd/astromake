@@ -37,3 +37,12 @@ ftp:
 
 msg:
 	echo $(MSG)
+
+cvstar:
+	(mkdir -p tmp; cd tmp;\
+          rm -rf astromake;\
+          cvs -Q -d `cat ../CVS/Root` co astromake;\
+          tar zcf ../astromake.tar.gz astromake;\
+          rm -rf astromake)
+
+
