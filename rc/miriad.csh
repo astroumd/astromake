@@ -19,6 +19,7 @@ if ($#a_version == 0) then
 else
   setenv MIR $dir/$a_version[1]
 endif
+unsetenv MIRHELLO
 
 #  add environment  (linux only for now)
 if (-e $MIR/MIRRC.linux) then
