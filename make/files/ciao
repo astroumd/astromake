@@ -5,6 +5,10 @@ FTP=/dev/null
 FILE=/dev/null
 SIZE=0.0Mb
 
+# ciao on:   ftp://cxc.harvard.edu/pub/ciao3.0/linux8/
+# caldb on:  ftp://cda.harvard.edu/pub/arcftp/caldb/
+# atomdb on: ftp://cxc.harvard.edu/atomdb/release
+
 #  there is no easy remote version, there are a large number of small
 #  files to get... we only offer a local version
 
