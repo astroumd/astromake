@@ -1,0 +1,14 @@
+#    ASTROMAKE V1.x setup
+#    
+#   !! only edit this file if has the ".in" extension, and run "configure" !!
+#   !! again to create the actual version users will be using              !!
+#
+
+
+if ($path[1] == $ASTROMAKE/bin) set path=($path[2-])      
+if ($path[2] == $ASTROMAKE/bin) set path=($path[1] $path[3-])
+rehash
+
+unalias astroload
+
+unsetenv ASTROMAKE
