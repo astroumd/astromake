@@ -11,6 +11,15 @@ else
   goto err
 endif
 
+set path=($CARMA_TOOLS/bin $path)
+rehash
+
+if ($?LD_LIBRARY_PATH) then
+  setenv LD_LIBRARY_PATH $CARMA_TOOLS/lib:$LD_LIBRARY_PATH
+else
+  setenv LD_LIBRARY_PATH $CARMA_TOOLS/lib
+endif
+
 err:
 
 unset dir
