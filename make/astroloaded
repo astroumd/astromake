@@ -17,7 +17,7 @@ if ($?KARMABASE) then
 endif
 
 if ($?MIR) then
-   echo "MIRIAD  : $MIR"
+   echo "MIRIAD  : $MIR - version `cat $MIR/VERSION`"
 endif
 
 if ($?NEMO) then
