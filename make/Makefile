@@ -29,6 +29,12 @@ remote:
 	make export TARNAME=/tmp/astromake.tar.gz
 	scp /tmp/astromake.tar.gz  teuben@apus.astro.umd.edu:/home/ftp/pub/astro
 
+cvstar:
+	(mkdir tmp; cd tmp;\
+	cvs -d :pserver:anonymous@cvs.astro.umd.edu:/home/cvsroot co astromake;\
+	tar zcf /tmp/astromake.tar.gz astromake)
+	scp /tmp/astromake.tar.gz  teuben@apus.astro.umd.edu:/home/ftp/pub/astro
+
 diff:
 	@for i in $(SRCBIN); do \
 	  diff $$i  $(DESTBIN); done
