@@ -28,4 +28,5 @@ clean:
 	rm -f $(FILE)
 
 remove:
+	rm -rf $(ROOT)/$(VERSION)
 	rm -f $(ASTROMAKE)/status/$(NAME)
