@@ -1,0 +1,31 @@
+FTP=ftp://ftp.astro.umd.edu/pub/astro
+VERSION=1.5
+FILE=n/a
+SIZE=1582MB
+
+
+URL=$(FTP)/$(FILE)
+
+
+NAME=aips++
+ROOT=$(ASTROMAKE)/opt/aips++
+
+help:
+	@echo $(NAME) $(VERSION) $(SIZE)
+
+url:
+	@echo http://aips2.nrao.edu
+
+all:	get install clean
+
+get:
+	wwwget $(URL)
+
+install:
+	echo $(VERSION) > $(ASTROMAKE)/status/$(NAME)
+
+clean:
+	@echo no clean
+
+remove:
+	rm -f $(ASTROMAKE)/status/$(NAME)
