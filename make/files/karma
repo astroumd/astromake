@@ -1,5 +1,5 @@
 FTP=ftp://ftp.astro.umd.edu/pub/astro/
-VERSION=1.7.11
+VERSION=1.7.12
 FILE=karma-$(VERSION).tgz
 SIZE=10.4Mb
 
@@ -30,3 +30,6 @@ clean:
 remove:
 	rm -rf $(ROOT)/karma
 	rm -f $(ASTROMAKE)/status/$(NAME)
+
+export:
+	(cd $(ASTROMAKE)/opt; tar zcf $(FILE) karma)
