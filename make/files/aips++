@@ -25,7 +25,7 @@ install:
 	echo $(VERSION) > $(ASTROMAKE)/status/$(NAME)
 
 clean:
-	@echo no clean
+	rm -f $(FILE)
 
 remove:
 	rm -f $(ASTROMAKE)/status/$(NAME)
