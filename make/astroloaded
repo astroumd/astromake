@@ -32,6 +32,10 @@ if ($?SMPATH) then
    echo "SM      : $SMPATH"
 endif
 
+if ($?WASP2) then
+   echo "WASP2   : $WASP2
+endif
+
 
 if ($?STARLAB_PATH) then
    echo "STARLAB : $STARLAB_PATH"
@@ -40,6 +44,12 @@ endif
 if ($?ZENOPATH) then
    echo "ZENO    : $ZENO "
 endif
+
+if ($?LD_LIBRARY_PATH) then
+   echo "LD_LIBRARY_PATH : $LD_LIBRARY_PATH"
+endif
+
+
 
 
 
