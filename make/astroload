@@ -23,9 +23,17 @@ ploop:
 
   set package=$packages[1]
   shift packages
+  #					give a little bit of help
+  if (X$package == X-h) then
+    echo "Usage: astroload [-v version_id] package_name(s)"
+    goto end
+  endif
   #					find -v option to select a version
   if (X$package == X-v) then
-    if ($#packages == 0) goto end
+    if ($#packages == 0) then
+	astromake versions
+	goto end
+    endif
     set a_version=$packages[1]
     # echo ASTRO VERSION $a_version
     shift packages

@@ -2,7 +2,7 @@
 
 First time install:
 
-CVS:
+via CVS:
     cvs -d :pserver:guest@cvs.astro.umd.edu:/home/cvsroot login
     (password: guest)
     cvs -d :pserver:guest@cvs.astro.umd.edu:/home/cvsroot co astromake
@@ -10,13 +10,14 @@ CVS:
     ./configure
     make install
     source astromake_start
-    
 
-TARFILE:
+via a TARFILE:  (normally ftp.astro.umd.edu:/pub/astro)
 
-    cd /usr/local/astro/make
+    tar zxf astromake_1.0.tar.gz
+    cd astromake_1.0
+    ./configure
     make install
-
+    source astromake_start
 
 Upgrades:
 
@@ -27,11 +28,15 @@ Typical installations
 
     astromake all pgplot miriad karma
 
+Typical usage to load a package in a shell
 
+    astroload 
 
 -- 
 
 Cheating:
 
- *  in opt you can symlink to 'astromake' packages that live someplace else.
-    usually you have to brand a status file in status/package_name
+ * in $ASTROMAKE/opt you can symlink to 'astromake' (or even other) packages 
+   that live someplace else in your filesystem.
+   Usually you have to brand a fake status file in $ASTROMAKE/status/package_name, 
+   link them in $ASTROMAKE/opt/package_name.

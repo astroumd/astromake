@@ -1,5 +1,4 @@
-#
-
+# top level makefile for astromake
 
 help:
 	@echo No help here
@@ -10,7 +9,7 @@ install:	.dirs .bin
 	(cd make; make install)
 
 .dirs:	
-	mkdir -p bin opt status
+	mkdir -p bin lib opt status
 
 cvsu:
 	cvsu | grep ^M
