@@ -34,7 +34,7 @@ ploop:
 	astromake versions
 	goto end
     endif
-    set a_version=$packages[1]
+    set a_version=($packages[1])
     # echo ASTRO VERSION $a_version
     shift packages
     goto ploop
@@ -44,14 +44,22 @@ ploop:
   if (-e $ASTROMAKE/status/$package) then
     if ($?prompt) echo AstroLoading $package $a_version \(`cat $ASTROMAKE/status/$package`\)
     source $ASTROMAKE/rc/$package.csh
-    set a_version=()
-    set astroload=($astroload $package)
+    if ($?a_version) then
+        set astroload=($astroload ${package}_$a_version)
+        set a_version=()
+    else
+        set astroload=($astroload $package)
+    endif
   else if (-d $ASTROMAKE/opt/$package) then
     echo Package $package does not have a status, yet exists 
     if (-e $ASTROMAKE/rc/$package.csh) then
     	source $ASTROMAKE/rc/$package.csh
-    	set a_version=()
-    	set astroload=($astroload $package)
+        if ($?a_version) then
+            set astroload=($astroload ${package}_$a_version)
+            set a_version=()
+        else
+            set astroload=($astroload $package)
+        endif
     else
 	echo No startup script $package.csh found
     endif
