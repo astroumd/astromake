@@ -22,6 +22,8 @@ get:
 
 install:
 	tar -C $(ROOT) -zxf $(FILE)
+	ln -s $(ROOT)/$(NAME)/src/xgobi $(ASTROMAKE)/bin
+	ln -s $(ROOT)/$(NAME)/src/xgvis $(ASTROMAKE)/bin
 	echo $(VERSION) > $(ASTROMAKE)/status/$(NAME)
 
 clean:

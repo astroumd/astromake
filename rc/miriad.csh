@@ -4,11 +4,20 @@
 
 #  set root directory
 
+set dir=$ASTROMAKE/opt/miriad
+
 if ($#a_version == 0) then
-  # take the first entry from the list
-  setenv MIR $ASTROMAKE/opt/miriad/`head -1 $ASTROMAKE/opt/miriad/VERSIONS`
+  if (-e $dir/VERSIONS) then
+    # take the first entry from the list
+    setenv MIR $dir/`head -1 $dir/VERSIONS`
+  else
+    # must be just one version, so find out from the status file
+    if (-e $ASTROMAKE/status/miriad) then
+      setenv MIR $dir/`cat $ASTROMAKE/status/miriad`
+    endif     
+  endif
 else
-  setenv MIR $ASTROMAKE/opt/miriad/$a_version[1]
+  setenv MIR $dir/$a_version[1]
 endif
 
 #  add environment  (linux only for now)

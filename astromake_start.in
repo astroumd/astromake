@@ -15,11 +15,9 @@ rehash
 alias astroload   source $ASTROMAKE/make/astroload
 alias astroloaded source $ASTROMAKE/make/astroloaded
 
-#		can't shut it up.....
-if (0) then
-if (-e ~/.astroload) then
-  set _a=(`cat ~/.astroload`)
-  astroload $_a 
-endif
+
+#	global properties
+if (-e ~/.astromake) then
+  source ~/.astromake
 endif
 

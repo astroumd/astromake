@@ -1,9 +1,13 @@
 
+set dir=$ASTROMAKE/opt/gipsy
 
-#	set the root
-#setenv gip_root /data/teuben/gipsy/nov2000; 
-source $ASTROMAKE/opt/gipsy/gip_root
+if (-e $ASTROMAKE/status/gipsy) then
+  setenv gip_root $ASTROMAKE/opt/gipsy/`cat $ASTROMAKE/status/gipsy`
+endif
 
 # 	install environment
-source $gip_root/sys/gipenv.csh
+
+if (-e $gip_root/sys/gipenv.csh) source $gip_root/sys/gipenv.csh
+
+unset dir
 

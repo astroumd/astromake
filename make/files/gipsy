@@ -1,6 +1,6 @@
 VERSION=nov2000
 FTP=ftp://ftp.astro.umd.edu/pub/astro
-FILE=gipsy-$(VERSION).tar.gz
+FILE=gipsy_$(VERSION).tar.gz
 SIZE=81.8Mb
 
 #  there is no easy remote version, there are a large number of small
@@ -23,10 +23,10 @@ get:
 	wwwget $(URL)
 
 install:
-	-mkdir $(ROOT)
+	-mkdir -p $(ROOT)
 	tar -C $(ROOT) -zxf $(FILE)
 	echo $(VERSION) > $(ASTROMAKE)/status/$(NAME)
-	echo You will most likely have to edit the loc/clients file
+	@echo You will most likely have to edit the loc/clients file
 
 clean:
 	rm -f $(FILE)
