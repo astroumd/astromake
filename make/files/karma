@@ -1,15 +1,11 @@
-FTP=ftp://ftp.atnf.csiro.au/pub/software/karma/current/
-#FTP=ftp://rigel.astro.umd.edu/pub/astro
-VERSION=1.6.30
-FILE1=i386_Linux-v$(VERSION).tar.gz
-FILE2=karma.share-v$(VERSION).tar.gz
-SIZE=9.2Mb
+FTP=ftp://ftp.astro.umd.edu/pub/astro/
+VERSION=1.6.33p
+FILE=karma-$(VERSION).tgz
+SIZE=16.8Mb
 
+URL=$(FTP)/$(FILE)
 
-URL1=$(FTP)/$(FILE1)
-URL2=$(FTP)/$(FILE2)
-
-ROOT=/usr/local/
+ROOT=$(ASTROMAKE)/opt
 NAME=karma
 
 help:
@@ -21,19 +17,16 @@ url:
 all:	get install clean
 
 get:
-	wwwget $(URL1)
-	wwwget $(URL2)
+	wwwget $(URL)
 
 
 install:
-	tar -C $(ROOT) -zxf $(FILE1)
-	tar -C $(ROOT) -zxf $(FILE2)
+	tar -C $(ROOT) -zxf $(FILE)
 	echo $(VERSION) > $(ASTROMAKE)/status/$(NAME)
 
 clean:
-	rm -f $(FILE1)
-	rm -f $(FILE2)
+	rm -f $(FILE)
 
 remove:
-	rm -rf $(ROOT)/$(NAME)
+	rm -rf $(ROOT)/karma
 	rm -f $(ASTROMAKE)/status/$(NAME)

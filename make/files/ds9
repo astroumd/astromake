@@ -1,30 +1,36 @@
-FTP=ftp://sao-ftp.harvard.edu/pub/rd/ds9/linux
-VERSION=2.0
-FILE=ds9
-SIZE=3.5MB
+FILE=ds9.tar.gz
+VERSION=2.1b4
+SIZE=7.5Mb
+FTP=ftp://ftp.astro.umd.edu/pub/astro
 
-URL=$(FTP)/$(FILE)
-BINDIR = /usr/local/bin
+URL=$(FTP)//$(FILE)
 
+
+ROOT=$(ASTROMAKE)/opt
 NAME=ds9
 
 help:
 	@echo $(NAME) $(VERSION) $(SIZE)
 
 url:
-	@echo http://hea-www.harvard.edu/RD/ds9/
+	 @echo http://hea-www.harvard.edu/RD/ds9/
 
 all:	get install clean
 
 get:
 	wwwget $(URL)
 
+
 install:
-	cp ds9 $(BINDIR); chmod +x $(BINDIR)/ds9
+	tar -C $(ROOT) -zxf $(FILE)
 	echo $(VERSION) > $(ASTROMAKE)/status/$(NAME)
+
+export:
+	tar -C $(ROOT) -zcf /tmp/$(FILE) $(NAME)
 
 clean:
 	rm -f $(FILE)
 
 remove:
-	rm -f $(ASTROMAKE)/status/$(NAME) 
+	rm -rf $(ROOT)/$(NAME)
+	rm -f $(ASTROMAKE)/status/$(NAME)
