@@ -1,12 +1,13 @@
-FTP=ftp://linux.nrao.edu/pub/linux/packages/RPMS/i386/Glibc
-VERSION=5.2.0
-FILE=pgplot-$(VERSION)-3u.i386.rpm
-RPM=pgplot-$(VERSION)-3u
-SIZE=0.8Mb
+#FTP=ftp://linux.nrao.edu/pub/linux/packages/RPMS/i386/Glibc
+FTP=ftp://ftp.astro.umd.edu/pub/astro
+VERSION=5.2.2
+FILE=pgplot-$(VERSION)-linux.tar.gz
+SIZE=1.6Mb
 
 URL=$(FTP)/$(FILE)
 
 NAME=pgplot
+ROOT=$(ASTROMAKE)/opt
 
 help:
 	@echo $(NAME) $(VERSION) $(SIZE)
@@ -20,12 +21,12 @@ get:
 	wwwget $(URL)
 
 install:
-	rpm -i $(FILE)
+	tar -C  $(ROOT) -zxf $(FILE)
 	echo $(VERSION) > $(ASTROMAKE)/status/$(NAME)
 
 clean:
 	rm -f $(FILE)
 
 remove:
-	rpm -e $(RPM)
+	rm -rf $(ROOT)/$(NAME)
 	rm -f $(ASTROMAKE)/status/$(NAME)
