@@ -23,4 +23,7 @@ else if (-e $dir/current/aipsinit.csh) then
 
 endif
 
+# private AIPS++ settings
+if (-e ~/.aips++_env) source ~/.aips++_env
+
 unset dir

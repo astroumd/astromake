@@ -42,7 +42,9 @@ ploop:
 
   #					start package by sourcing startup file
   if (-e $ASTROMAKE/status/$package) then
-    if ($?prompt) echo AstroLoading $package $a_version \(`cat $ASTROMAKE/status/$package`\)
+    if ($?ASTROLOADED == 0) then
+      if ($?prompt) echo AstroLoading $package $a_version \(`cat $ASTROMAKE/status/$package`\)
+    endif
     source $ASTROMAKE/rc/$package.csh
     if ($?a_version) then
         set astroload=($astroload ${package}_$a_version)
