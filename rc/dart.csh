@@ -4,6 +4,14 @@
 #
 # alias dart $ASTROMAKE/opt/dart/current/bin/dart
 
+echo You should actually never astroload dart
+echo but make sure your browser has a reference to it.
+echo "edit->preferences->Navigotor->Helper Applications"
+echo "     MIME Type: application/x-multiget"
+echo "     Description: bima data archive retrieval"
+echo "     Open it with:   /astromake/opt/dart/current/bin/dart"
+echo "Should do it. These are the examples for mozilla"
+
 exit 0
 
 #--- anything below this probably should be someplace in your FIXED path
