@@ -16,7 +16,7 @@ alias astroload   source $ASTROMAKE/make/astroload
 alias astroloaded source $ASTROMAKE/make/astroloaded
 
 #   local deviations for the whole package
-foreach file ($ASTROMAKE/.astromake  ~/.astromake) 
-  if (-e $file) source $file
+foreach _file ($ASTROMAKE/.astromake  ~/.astromake) 
+  if (-e $_file) source $_file
 end
-unset file
+unset _file
