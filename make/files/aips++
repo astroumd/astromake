@@ -1,6 +1,6 @@
 FTP=ftp://ftp.astro.umd.edu/pub/astro
-VERSION=1.5
-FILE=aips15.tar.gz
+VERSION=1.51
+FILE=aips151.tar.gz
 SIZE=1582MB
 
 URL=$(FTP)/$(FILE)
