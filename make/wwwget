@@ -1,0 +1,19 @@
+#! /bin/csh -f
+#
+#
+#   get a remote URL locally
+#
+
+foreach url ($*)
+
+  set url=$url
+  set file=$url:t
+
+  if (-e /usr/bin/wget) then
+     wget $url
+  else
+     lynx -base -source $url > $file
+#    ncftpget $url
+  endif
+end
+
