@@ -15,7 +15,7 @@ foreach package ($*)
     source $ASTROMAKE/rc/$package.csh 
     set astroload=($astroload $package)
   else
-    echo Package $package does not exist
+    echo Package $package does not exist, try the command: astromake show
   endif
 end
 
