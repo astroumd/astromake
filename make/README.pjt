@@ -1,4 +1,6 @@
 Experimental astronomy setup shell on top or tgz/rpm/deb files.....
+Built for linux, but there is no reason it should not work on 
+e.g. solaris, or heaven forbid, macosx..
 
 This setup shell uses makefiles, each package will have a makefile with
 a minimum list of targets, and a c-shell based RC file to be sourced by
