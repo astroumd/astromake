@@ -28,6 +28,11 @@ if ($?PGPLOT_DIR) then
    echo "PGPLOT  : $PGPLOT_DIR"
 endif
 
+if ($?SMPATH) then
+   echo "SM      : $SMPATH"
+endif
+
+
 if ($?STARLAB_PATH) then
    echo "STARLAB : $STARLAB_PATH"
 endif
