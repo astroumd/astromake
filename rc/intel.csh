@@ -14,9 +14,8 @@ else
     setenv IA32_CURRENT_LD_LIBRARY_PATH $LD_LIBRARY_PATH
     endif
 
-#setenv IA32ROOT $ASTROMAKE/opt/intel/compiler50/ia32
-#setenv IA32ROOT $ASTROMAKE/opt/intel/compiler60/ia32
 setenv IA32ROOT $ASTROMAKE/opt/intel/compiler70/ia32
+set    _manroot=$ASTROMAKE/opt/intel/compiler70/man
 if !($?IA32_SAVE_PATH) then
     setenv PATH $IA32ROOT/bin
 else
@@ -34,3 +33,9 @@ setenv INTEL_FLEXLM_LICENSE $ASTROMAKE/opt/intel/licenses
 # with 7.0 ?
 # setenv INTEL_LICENSE_FILE /astromake/opt/intel/licenses
 
+if ($?MANPATH) then
+  setenv MANPATH ${MANPATH}:$_manroot
+else
+  setenv MANPATH $_manroot
+endif
+unset _manroot
