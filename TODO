@@ -21,6 +21,8 @@
 	astroload -v 3.2.2 gcc
   if that is what it was used with....
 
+- incremental loads ??   allow multiple versions of astromake?
+
 - allow packages to be loaded that don't have a status file?
 
 - write the rc scripts in a meta-shell, that gets compiled in the 
