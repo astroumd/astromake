@@ -9,13 +9,13 @@ URL=$(FTP)/$(FILE)
 
 
 NAME=dart
-ROOT=/usr/local/dart
+ROOT=$(ASTROMAKE)/dart
 
 help:
 	@echo $(NAME) $(VERSION) $(SIZE)
 
 url:
-	@echo //http://bimaarch.ncsa.uiuc.edu/bima.html
+	@echo http://bimaarch.ncsa.uiuc.edu/bima.html
 
 all:	get install clean
 
@@ -29,7 +29,7 @@ install:
 	fi
 	tar -C $(ROOT) -zxf $(FILE)
 	(cd $(ROOT); rm -f current; ln -s DaRT-v_$(VERSION) current)
-	cp $(ROOT)/current/bin/dart /usr/local/bin
+	ln -s $(ROOT)/current/bin/dart $(ASTROMAKE)/bin
 	echo $(VERSION) > $(ASTROMAKE)/status/$(NAME)
 
 clean:
@@ -38,4 +38,4 @@ clean:
 remove:
 	rm -r $(ROOT)
 	rm -f $(ASTROMAKE)/status/$(NAME)
-	rm -f /usr/local/bin/dart
+	rm $(ASTROMAKE)/bin/dart
