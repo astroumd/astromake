@@ -6,20 +6,45 @@
 # in order to more easily load packages on the fly
 #
 
+if ($#argv == 0) then
+  echo The following astromake packages have been loaded in this shell with astroload:
+  echo $astroload
+  goto end
+endif
+
 if ($?astroload == 0) set astroload=()
 
+set packages=($*)
+set version=()
 
-foreach package ($*)
+ploop:
+  if ($#packages == 0) goto end
+  set package=$packages[1]
+  shift packages
+  if (X$package == X-v) then
+    if ($#packages == 0) goto end
+    set version=$packages[1]
+#     echo ASTRO VERSION $version
+    shift packages
+    goto ploop
+  endif
   if (-e $ASTROMAKE/status/$package) then
-    if ($?prompt) echo Loading $package version `cat $ASTROMAKE/status/$package`
-    source $ASTROMAKE/rc/$package.csh 
+	### todo here:  check if package was already loaded....
+    if ($?prompt) echo AstroLoading $package version `cat $ASTROMAKE/status/$package` $version
+    if (X$version == X) then
+#	echo ASTRLOAD default
+        source $ASTROMAKE/rc/$package.csh
+    else
+#	echo ASTRLOAD version $version
+	source $ASTROMAKE/rc/$package.csh $version
+    endif
+    set version=()
     set astroload=($astroload $package)
   else
     echo Package $package does not exist, try the command: astromake show
   endif
-end
+goto ploop
 
-if ($#argv == 0) then
-  echo The following astromake packages have been loaded in this shell with astroload:
-  echo $astroload
-endif
+
+
+end:
