@@ -1,0 +1,22 @@
+#    ASTROMAKE V1.x setup
+#    
+#   !! only edit this file if has the ".in" extension, and run "configure" !!
+#   !! again to create the actual version users will be using              !!
+#
+setenv ASTROMAKE  @ASTROMAKE@
+
+if ("$path[1]" == ".") then
+  if ($path[2] != $ASTROMAKE/bin) set path=(. $ASTROMAKE/bin $path[2-])
+else 
+  if ($path[1] != $ASTROMAKE/bin) set path=($ASTROMAKE/bin $path)      
+endif
+rehash
+
+alias astroload   source $ASTROMAKE/make/astroload
+alias astroloaded source $ASTROMAKE/make/astroloaded
+
+#   local deviations for the whole package
+foreach _file ($ASTROMAKE/.astromake  ~/.astromake) 
+  if (-e $_file) source $_file
+end
+unset _file

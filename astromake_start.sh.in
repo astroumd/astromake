@@ -1,0 +1,21 @@
+#    ASTROMAKE V1.2 setup
+#    
+#   !! only edit this file if has the ".in" extension, and run "configure" !!
+#   !! again to create the actual version users will be using              !!
+#
+export ASTROMAKE=@ASTROMAKE@
+
+export PATH=$ASTROMAKE/bin:$PATH
+
+alias astroload='source $ASTROMAKE/make/astroload.sh'
+alias astroloaded='source $ASTROMAKE/make/astroloaded.sh'
+
+#   local deviations for the whole package
+for _file in $ASTROMAKE/.astromake  ~/.astromake
+do
+  if test -e $_file
+  then
+    source $_file
+  fi
+done
+
