@@ -19,3 +19,4 @@ alias astroloaded source $ASTROMAKE/make/astroloaded
 foreach file ($ASTROMAKE/.astromake  ~/.astromake) 
   if (-e $file) source $file
 end
+unset file
