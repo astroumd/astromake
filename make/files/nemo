@@ -1,0 +1,36 @@
+FTP=ftp://ftp.astro.umd.edu/pub/astro
+VERSION=2.5.2
+FILE=nemo_$(VERSION)-linux.tar.gz
+SIZE=20.1MB
+
+
+URL=$(FTP)/$(FILE)
+
+
+NAME=nemo
+ROOT=/usr/local/nemo
+
+help:
+	@echo $(NAME) $(VERSION) $(SIZE)
+
+url:
+	@echo http://astro.astro.umd.edu/nemo/
+
+all:	get install clean
+
+get:
+	wwwget $(URL)
+
+install:
+	if [ ! -d $(ROOT) ]; then \
+	  mkdir $(ROOT); \
+	fi
+	tar -C $(ROOT) -zxf $(FILE)
+	echo $(VERSION) > /usr/local/astro/status/$(NAME)
+
+clean:
+	rm -f $(FILE)
+
+remove:
+	rm -r $(ROOT)
+	rm -f /usr/local/astro/status/$(NAME)
