@@ -1,2 +1,2 @@
 #
-source $(ASTROMAKE)/opt/nemo/nemo_start
+source $ASTROMAKE/opt/nemo/nemo_start
