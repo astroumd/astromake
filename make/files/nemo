@@ -1,7 +1,7 @@
 FTP=ftp://ftp.astro.umd.edu/pub/astro
-VERSION=3.0.15
+VERSION=3.2.2
 FILE=nemo_$(VERSION)-linux.tar.gz
-SIZE=72.5MB
+SIZE=153.9MB
 
 
 URL=$(FTP)/$(FILE)
