@@ -2,9 +2,8 @@
 #  OLD non-versionable
 #source $ASTROMAKE/opt//miriad/cshrc.MIRIAD
 
-#echo MIRIAD.CSH:  $#argv  1=$1  all=$*   a_version=$a_version
-
 #  set root directory
+
 if ($#a_version == 0) then
   # take the first entry from the list
   setenv MIR $ASTROMAKE/opt/miriad/`head -1 $ASTROMAKE/opt/miriad/VERSIONS`
@@ -13,4 +12,8 @@ else
 endif
 
 #  add environment  (linux only for now)
-source $MIR/MIRRC.linux
+if (-e $MIR/MIRRC.linux) then
+  #	dereference any symlinks
+  setenv MIR `ls -l $MIR | awk '{print $NF}'`
+  source $MIR/MIRRC.linux
+endif
