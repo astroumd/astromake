@@ -1,0 +1,35 @@
+FTP=ftp://ftp.astro.umd.edu/pub/astro
+VERSION=01jun15
+FILE=miriad-$(VERSION).tgz
+SIZE=85.8Mb
+
+URL=$(FTP)/$(FILE)
+
+
+NAME=miriad
+ROOT=/usr/local/miriad
+
+help:
+	@echo $(NAME) $(VERSION) $(SIZE)
+
+url:
+	@echo http://bima.astro.umd.edu/miriad/
+
+all:	get install clean
+
+get:
+	wwwget $(URL)
+
+install:
+	if [ ! -d $(ROOT) ]; then \
+	  mkdir $(ROOT); \
+	fi
+	tar -C $(ROOT) -zxf $(FILE)
+	echo $(VERSION) > /usr/local/astro/status/$(NAME)
+
+clean:
+	rm -f $(FILE)
+
+remove:
+	rm -r $(ROOT)
+	rm -f /usr/local/astro/status/$(NAME)
