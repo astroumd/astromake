@@ -27,6 +27,12 @@ else
     setenv PATH $ASTROMAKE/opt/intel/bin:$PATH
 endif
 
+if !($?LD_LIBRARY_PATH) then
+    setenv LD_LIBRARY_PATH $ASTROMAKE/opt/intel/lib
+else
+    setenv LD_LIBRARY_PATH $ASTROMAKE/opt/intel/lib:$LD_LIBRARY_PATH
+endif
+
 if !($?MANPATH) then
     setenv MANPATH $ASTROMAKE/opt/intel/man:`man -w`
 else
