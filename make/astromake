@@ -1,0 +1,122 @@
+#! /bin/csh -f
+#
+#
+#  ToDo:
+#    *   -l special local flag (FTP=ftp://ftp.astro.umd.edu/progs/bima/astromake/)
+#    *  base all packages in /usr/local/astro, so we can use
+#	    another 'root' to install astromake without becoming root.
+
+set root=/usr/local/astro/
+set name=$0:t
+set version=0.97
+#set lftp=ftp://rigel.astro.umd.edu/pub/astro/
+set lftp=ftp://ftp.astro.umd.edu/progs/bima/astromake/
+set args=()
+
+if ($#argv == 1) then
+  set retval=0
+  if ($1 == help) then
+    echo $name $version
+    echo Last build: `cat $root/make/version`
+  else if ($1 == check) then
+    echo Checking, getting latest version from master site
+    mkdir -p /tmp/astromake
+    pushd /tmp/astromake >& /dev/null
+    astromake get astromake
+    tar zxf astromake.tar.gz usr/local/astro/make/version
+    diff -q usr/local/astro/make/version /usr/local/astro/make/version
+    set retval=$status
+    if ($retval != 0) then
+      echo You should probably install a new astromake version, yours is outdated:
+      diff /usr/local/astro/make/version usr/local/astro/make/version 
+      echo Issue the command:
+      echo "	astromake update"
+      echo "(in some case you need to do this twice)"
+    else
+      echo OK, you seem to have the latest version of astromake:
+      cat usr/local/astro/make/version
+    endif
+    popd >& /dev/null
+    rm -rf /tmp/astromake >& /dev/null
+  else if ($1 == update) then
+    astromake all astromake
+  else if ($1 == show) then
+    echo "$name $version"
+    echo "Available packages:"
+    echo "----------------------------------------------------------------------"
+    echo "Package            Generic Name        VID   Size(Mb)  Inst"
+    echo "-------            ------------    -------   --------  ----"
+
+    foreach p ($root/make/files/*)
+      set pn=$p:t
+      set am=($pn `astromake help $pn`)
+      if (-z $root/status/$am[2]) then
+        set am=($am Y)
+      else if (-e $root/status/$am[2]) then
+        set am=($am `cat $root/status/$am[2]`)
+      endif
+      echo $am | awk '{printf("%-20s %10s %10s %10s %4s\n",$1,$2,$3,$4,$5)}'
+    end
+
+    echo "----------------------------------------------------------------------"
+  endif
+  exit $retval
+endif
+
+if ( "$1" == "-l" ) then
+  set args=($args FTP=$lftp)
+  shift argv
+endif
+if ( "$1" == "-n" ) then
+  set args=(-n $args )
+  shift argv
+endif
+if ( "$1" == "-v" ) then
+  shift argv
+  set args=(VERSION=$1 $args )
+  shift argv
+endif
+
+if (! -d $root/status) mkdir $root/status
+
+
+set action="$1"
+if ($#argv == 0) then   
+    if (-e $root/make/version) then
+      set verbver="(`cat $root/make/version`)"
+    else
+      set verbver=" (unknown origin)"
+    endif
+    echo "$name $version $verbver"
+    echo "Usage: $name [-l] [-v version] action [package(s)]"
+    echo "----------------------------------------------------------------------"
+    echo "Flags: "
+    echo "    -l          Use your local ftp ($lftp)"
+    echo "    -v VID      Override the current version VID"
+    echo "Common actions for packages:"
+    echo "    get       - only get the tar/rpm/deb files"
+    echo "    install   - only install from local package files"
+    echo "    clean     - remove package installation files (local disk)"
+    echo "    all       - all of the above (this is what you usually want)"
+    echo ""
+    echo "    url       - show the URL where more info resides"
+    echo "    help      - show name/version/size(MB)"
+    echo "    remove    - attempt to remove the whole package from disk"
+    echo ""
+    echo "Common other actions:"
+    echo ""
+    echo "    check     - check if current astromake is up to date"
+    echo "    update    - update the current astromake setup"
+    echo "    show      - show list of available and installed packages"
+    echo ""
+    exit 0
+endif
+shift argv
+
+foreach p ($*)
+  if (-e $root/make/files/$p) then
+     make -f $root/make/files/$p $args $action
+  else if (-e $p) then
+     make -f $p $args $action
+  endif
+end  
