@@ -1,0 +1,41 @@
+# in development
+FTP=ftp://ftp.astro.umd.edu/pub/astro
+VERSION=3.0.3
+FILE=DaRT_v_$(VERSION)_LINUX_GLIBC2.tar.gz
+SIZE=13.5Mb
+
+
+URL=$(FTP)/$(FILE)
+
+
+NAME=dart
+ROOT=/usr/local/dart
+
+help:
+	@echo $(NAME) $(VERSION) $(SIZE)
+
+url:
+	@echo //http://bimaarch.ncsa.uiuc.edu/bima.html
+
+all:	get install clean
+
+get:
+	wwwget $(URL)
+	wwwget $(FTP)/dart; chmod +x dart
+
+install:
+	if [ ! -d $(ROOT) ]; then \
+	  mkdir $(ROOT); \
+	fi
+	tar -C $(ROOT) -zxf $(FILE)
+	(cd $(ROOT); rm -f current; ln -s DaRT-v_$(VERSION) current)
+	cp $(ROOT)/current/bin/dart /usr/local/bin
+	echo $(VERSION) > /usr/local/astro/status/$(NAME)
+
+clean:
+	rm -f $(FILE) dart
+
+remove:
+	rm -r $(ROOT)
+	rm -f /usr/local/astro/status/$(NAME)
+	rm -f /usr/local/bin/dart
