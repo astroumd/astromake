@@ -1,0 +1,42 @@
+#
+#   tries to report what the current user environment contains
+#
+#   alias whatsup 'source ~/bin/whatsup'
+#
+
+if ($?AIPSPATH) then
+   echo "AIPS++  : $AIPSPATH"
+endif
+
+if ($?gip_root) then
+   echo "GIPSY   : $gip_root"
+endif 
+
+if ($?KARMAROOT) then
+   echo "KARMA   : $KARMAROOT - version $KARMA_VERSION"
+endif
+
+if ($?MIR) then
+   echo "MIRIAD  : $MIR"
+endif
+
+if ($?NEMO) then
+   echo "NEMO    : $NEMO - version $NEMOVER"
+endif
+
+if ($?PGPLOT_DIR) then
+   echo "PGPLOT  : $PGPLOT_DIR"
+endif
+
+if ($?STARLAB_PATH) then
+   echo "STARLAB : $STARLAB_PATH"
+endif
+
+if ($?ZENOPATH) then
+   echo "ZENO    : $ZENO "
+endif
+
+
+
+
+
