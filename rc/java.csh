@@ -19,7 +19,7 @@ setenv JDKHOME   $jroot
 setenv JAVA_HOME $jroot
 setenv JAVAHOME  $jroot
 
-set path=(. $jroot/bin $path[2-])
+set path=(. $jroot/bin $path[1-])
 rehash
 
 err:
