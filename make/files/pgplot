@@ -13,7 +13,7 @@ help:
 	@echo $(NAME) $(VERSION) $(SIZE)
 
 url:
-	@echo http://astro.caltech.edu/~tjp/pgplot/
+	@echo http://www.astro.caltech.edu/~tjp/pgplot/
 
 all:	get install clean
 
