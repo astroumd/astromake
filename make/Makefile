@@ -5,7 +5,8 @@ TARNAME = $(FTPDIR)/astromake.tar.gz
 #
 
 SRCBIN = astromake wwwget
-DESTBIN = $(ASTROMAKE)/bin
+#DESTBIN = $(ASTROMAKE)/bin
+DESTBIN = ../bin
 
 VERSION = `cat ../VERSION`
 
