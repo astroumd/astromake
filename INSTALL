@@ -1,6 +1,18 @@
-  (see also /usr/local/astro/make/README)
+  (see also $ASTROMAKE/make/README)
 
 First time install:
+
+CVS:
+    cvs -d :pserver:guest@cvs.astro.umd.edu:/home/cvsroot login
+    (password: guest)
+    cvs -d :pserver:guest@cvs.astro.umd.edu:/home/cvsroot co astromake
+    cd astromake
+    ./configure
+    make install
+    source astromake_start
+    
+
+TARFILE:
 
     cd /usr/local/astro/make
     make install

@@ -1,10 +1,11 @@
-#---do not execute-source this in csh
-# add the following alias to your .cshrc file:
+#---do not execute- this code needs to be sourced (normally via an alias)
 #
-# alias astroload 'set _astroload=(\!*); source $ASTROMAKE/make/astroload'
-# 
-# in order to more easily load packages on the fly
+#   A shell variable 'a_version' will be exported to the package startup
+#   scripts for those that support multiple versions
 #
+
+if ($?astroload == 0) set astroload=()
+
 
 if ($#argv == 0) then
   echo The following astromake packages have been loaded in this shell with astroload:
@@ -12,36 +13,42 @@ if ($#argv == 0) then
   goto end
 endif
 
-if ($?astroload == 0) set astroload=()
 
 set packages=($*)
-set version=()
+set a_version=()
 
+#					loop over all arguments
 ploop:
   if ($#packages == 0) goto end
+
   set package=$packages[1]
   shift packages
+  #					find -v option to select a version
   if (X$package == X-v) then
     if ($#packages == 0) goto end
-    set version=$packages[1]
-#     echo ASTRO VERSION $version
+    set a_version=$packages[1]
+    # echo ASTRO VERSION $a_version
     shift packages
     goto ploop
   endif
+
+  #					start package by sourcing startup file
   if (-e $ASTROMAKE/status/$package) then
-	### todo here:  check if package was already loaded....
-    if ($?prompt) echo AstroLoading $package version `cat $ASTROMAKE/status/$package` $version
-    if (X$version == X) then
-#	echo ASTRLOAD default
-        source $ASTROMAKE/rc/$package.csh
-    else
-#	echo ASTRLOAD version $version
-	source $ASTROMAKE/rc/$package.csh $version
-    endif
-    set version=()
+    if ($?prompt) echo AstroLoading $package $a_version \(`cat $ASTROMAKE/status/$package`\)
+    source $ASTROMAKE/rc/$package.csh
+    set a_version=()
     set astroload=($astroload $package)
+  else if (-d $ASTROMAKE/opt/$package) then
+    echo Package $package does not have a status, yet exists 
+    if (-e $ASTROMAKE/rc/$package.csh) then
+    	source $ASTROMAKE/rc/$package.csh
+    	set a_version=()
+    	set astroload=($astroload $package)
+    else
+	echo No startup script $package.csh found
+    endif
   else
-    echo Package $package does not exist, try the command: astromake show
+    echo Package $package does not exist, try the command: astromake show or astromake versions
   endif
 goto ploop
 

@@ -1,4 +1,26 @@
 #
+set dir=$ASTROMAKE/opt/aips++
 
-set version=`head -1 $ASTROMAKE/opt/aips++/VERSIONS`
-source $ASTROMAKE/opt/aips++/$version/aipsinit.csh
+# a_version is an astromake variable
+# a_root    is the AIPS++ variable you need to override if AIPS++ relocated
+
+if ($#a_version > 0) then
+
+  source $dir/$a_version/aipsinit.csh
+
+else if (-e $dir/aipsinit.csh) then
+
+  source $dir/aipsinit.csh
+
+else if (-e $dir/VERSIONS) then
+
+  set version=`head -1 $ASTROMAKE/opt/aips++/VERSIONS`
+  source $dir/$version/aipsinit.csh
+
+else if (-e $dir/current/aipsinit.csh) then
+
+  source $dir/current/aipsinit.csh
+
+endif
+
+unset dir

@@ -1,18 +1,19 @@
-#
-#echo nemo.csh:  $#argv ... 1 = $1   2 = $2
 
-#setenv NEMO $ASTROMAKE/opt/nemo/`head -1 $ASTROMAKE/opt/nemo/VERSIONS`
-#goto done
+set dir=$ASTROMAKE/opt/nemo
 
-#  set root directory
-if ($#argv == 0) then
-  # take the first entry from the list
-  setenv NEMO $ASTROMAKE/opt/nemo/`head -1 $ASTROMAKE/opt/nemo/VERSIONS`
+
+if (-e $dir/nemo_start)
+  setenv $NEMO $dir
+else if ($#a_version) then
+  setenv NEMO $dir/a_version
+else if (-e $dir/VERSIONS) then
+  setenv NEMO $dir/`head -1 $dir/VERSIONS`
 else
-  setenv NEMO $ASTROMAKE/opt/nemo/$1
+  goto err
 endif
 
-done:
-
-#  add environment
 source $NEMO/nemo_start
+
+err:
+
+unset dir
