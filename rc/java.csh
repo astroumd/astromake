@@ -1,7 +1,8 @@
 
 
 
-set dir=/home/java/
+#set dir=/home/java/
+set dir=/astromake/opt/java/
 
 if ($#a_version) then
   set jroot=$dir/$a_version
