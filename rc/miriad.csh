@@ -17,3 +17,7 @@ if (-e $MIR/MIRRC.linux) then
   # setenv MIR `ls -l $MIR | awk '{print $NF}'`
   source $MIR/MIRRC.linux
 endif
+
+
+# cheat, temp solution for wip:
+setenv WIPHELP $MIR/borrow/wip/wiphelp.dat
