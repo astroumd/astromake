@@ -1,8 +1,7 @@
-  (see also $ASTROMAKE/make/README)
+  (see also $ASTROMAKE/make/README.pjt)
 
-First time install:
 
-via CVS:
+First time install via CVS:
     cvs -d :pserver:guest@cvs.astro.umd.edu:/home/cvsroot login
     (password: guest)
     cvs -d :pserver:guest@cvs.astro.umd.edu:/home/cvsroot co astromake
@@ -11,7 +10,7 @@ via CVS:
     make install
     source astromake_start
 
-via a TARFILE:  (normally ftp.astro.umd.edu:/pub/astro)
+First time install via a TARFILE:  (normally ftp.astro.umd.edu:/pub/astro)
 
     tar zxf astromake_1.0.tar.gz
     cd astromake_1.0
@@ -19,19 +18,28 @@ via a TARFILE:  (normally ftp.astro.umd.edu:/pub/astro)
     make install
     source astromake_start
 
-Upgrades:
+Upgrades via CVS:
 
     cvs update
 
+Upgrades via a TARFILE:
 
-Typical installations
+    (not really available yet)
 
-    astromake all pgplot miriad karma
 
-Typical usage to load a package in a shell
+Typical installations:
+
+    astromake all pgplot miriad karma aips++
+
+Typical usage to load a package in a shell:
 
     astroload miriad nemo
     astroload -v 1.5 aips++
+
+Typical queries:
+
+    astroload -v
+    astroloaded
 
 -- 
 
