@@ -11,7 +11,11 @@ dnl ---			ASTROMAKE base directory
 ASTROMAKE="`pwd`"
 AC_SUBST(ASTROMAKE)
 
-AC_OUTPUT(astromake_start)
+AC_OUTPUT(astromake_start.csh)
+AC_OUTPUT(astromake_start.sh)
+
+dnl -- maintain some compatibility with the 1.1 and earlier release
+ln -sf astromake_start.csh astromake_start
 
 echo "
 -------------------------------------------------------------------------
@@ -19,8 +23,8 @@ Just proceed with
       make install
 and when this is done activate astromake in your shell by adding the
 command
-      source $ASTROMAKE/astromake_start
-to your c-shell startup file.
+      source $ASTROMAKE/astromake_start.csh
+to your csh startup file. Or the .sh variant if you use a sh type shell.
 -------------------------------------------------------------------------
 "
 
