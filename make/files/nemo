@@ -1,5 +1,5 @@
 FTP=ftp://ftp.astro.umd.edu/pub/astro
-VERSION=2.5.2
+VERSION=3.0.5
 FILE=nemo_$(VERSION)-linux.tar.gz
 SIZE=20.1MB
 
@@ -26,6 +26,7 @@ install:
 	  mkdir $(ROOT); \
 	fi
 	tar -C $(ROOT) -zxf $(FILE)
+	ln -s $(ROOT)/nemo_$(VERSION) $(ROOT)/$(VERSION) 
 	echo $(VERSION) > $(ASTROMAKE)/status/$(NAME)
 
 clean:
