@@ -1,0 +1,30 @@
+FTP=ftp://sao-ftp.harvard.edu/pub/rd/ds9/linux
+VERSION=2.0
+FILE=ds9
+SIZE=3.5MB
+
+URL=$(FTP)/$(FILE)
+BINDIR = /usr/local/bin
+
+NAME=ds9
+
+help:
+	@echo $(NAME) $(VERSION) $(SIZE)
+
+url:
+	@echo http://hea-www.harvard.edu/RD/ds9/
+
+all:	get install clean
+
+get:
+	wwwget $(URL)
+
+install:
+	cp ds9 $(BINDIR); chmod +x $(BINDIR)/ds9
+	echo $(VERSION) > /usr/local/astro/status/$(NAME)
+
+clean:
+	rm -f $(FILE)
+
+remove:
+	rm -f /usr/local/astro/status/$(NAME) 
