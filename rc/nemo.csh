@@ -8,6 +8,8 @@ else if ($#a_version) then
   setenv NEMO $dir/$a_version
 else if (-e $dir/VERSIONS) then
   setenv NEMO $dir/`head -1 $dir/VERSIONS`
+else if (-e $ASTROMAKE/status/nemo) then
+  setenv NEMO $dir/`cat $ASTROMAKE/status/nemo`
 else
   goto err
 endif
