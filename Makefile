@@ -10,7 +10,7 @@ install:	.dirs .bin
 	(cd make; make install)
 
 .dirs:	
-	mkdir -p bin lib opt status
+	mkdir -p bin lib include opt status
 
 cvsu:
 	cvsu | grep ^M
