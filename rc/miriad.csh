@@ -14,6 +14,6 @@ endif
 #  add environment  (linux only for now)
 if (-e $MIR/MIRRC.linux) then
   #	dereference any symlinks
-  setenv MIR `ls -l $MIR | awk '{print $NF}'`
+  # setenv MIR `ls -l $MIR | awk '{print $NF}'`
   source $MIR/MIRRC.linux
 endif

@@ -14,7 +14,7 @@ endif
 
 if (-e $NEMO/nemo_start) then
   # derefence any symlinks
-  setenv NEMO `ls -l $NEMO | awk '{print $NF}'`
+  # setenv NEMO `ls -l $NEMO | awk '{print $NF}'`
   source $NEMO/nemo_start
 endif
 
