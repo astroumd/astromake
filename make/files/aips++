@@ -1,11 +1,9 @@
 FTP=ftp://ftp.astro.umd.edu/pub/astro
 VERSION=1.5
-FILE=n/a
+FILE=aips15.tar.gz
 SIZE=1582MB
 
-
 URL=$(FTP)/$(FILE)
-
 
 NAME=aips++
 ROOT=$(ASTROMAKE)/opt/aips++
@@ -22,6 +20,7 @@ get:
 	wwwget $(URL)
 
 install:
+	tar -C $(ASTROMAKE)/opt -zxf $(FILE)
 	echo $(VERSION) > $(ASTROMAKE)/status/$(NAME)
 
 clean:
