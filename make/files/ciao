@@ -1,11 +1,11 @@
 #  warning: dummy stub
 
-VERSION=3.0
+VERSION=3.0.2
 FTP=/dev/null
 FILE=/dev/null
 SIZE=0.0Mb
 
-# ciao on:   ftp://cxc.harvard.edu/pub/ciao3.0/linux8/
+# ciao on:   ftp://cxc.harvard.edu/pub/ciao3.0/linux8/  (or linux6, check your GLIBC version)
 # caldb on:  ftp://cda.harvard.edu/pub/arcftp/caldb/
 # atomdb on: ftp://cxc.harvard.edu/atomdb/release
 
