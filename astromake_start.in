@@ -15,9 +15,7 @@ rehash
 alias astroload   source $ASTROMAKE/make/astroload
 alias astroloaded source $ASTROMAKE/make/astroloaded
 
-
-#	global properties
-if (-e ~/.astromake) then
-  source ~/.astromake
-endif
-
+#   local deviations for the whole package
+foreach file ($ASTROMAKE/.astromake  ~/.astromake) 
+  if (-e $file) source ~/.astromake
+end
