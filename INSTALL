@@ -1,0 +1,17 @@
+  (see also /usr/local/astro/make/README)
+
+First time install:
+
+    cd /usr/local/astro/make
+    make install
+
+
+Upgrades:
+
+    astromake all astromake
+
+
+Typical installations
+
+    astromake all pgplot miriad karma
+
