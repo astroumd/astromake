@@ -5,48 +5,57 @@
 #
 
 if ($?AIPSPATH) then
-   echo "AIPS++  : $AIPSPATH"
+   echo "AIPS++      : $AIPSPATH"
 endif
 
 if ($?gip_root) then
-   echo "GIPSY   : $gip_root"
+   echo "GIPSY       : $gip_root"
 endif 
 
 if ($?GLOBUS_LOCATION) then
-   echo "GLOBUS  : $GLOBUS_LOCATION"
+   echo "GLOBUS      : $GLOBUS_LOCATION"
 endif
 
 if ($?KARMABASE) then
-   echo "KARMA   : $KARMABASE - version $KARMA_VERSION"
+   echo "KARMA       : $KARMABASE - version $KARMA_VERSION"
 endif
 
 if ($?MIR) then
-   echo "MIRIAD  : $MIR - version `cat $MIR/VERSION`"
+   echo "MIRIAD      : $MIR - version `cat $MIR/VERSION`"
 endif
 
 if ($?NEMO) then
-   echo "NEMO    : $NEMO - version $NEMOVER"
+   echo "NEMO        : $NEMO - version $NEMOVER"
 endif
 
 if ($?PGPLOT_DIR) then
-   echo "PGPLOT  : $PGPLOT_DIR"
+   echo "PGPLOT      : $PGPLOT_DIR"
 endif
 
 if ($?SMPATH) then
-   echo "SM      : $SMPATH"
+   echo "SM          : $SMPATH"
 endif
 
 if ($?WASP2) then
-   echo "WASP2   : $WASP2
+   echo "WASP2       : $WASP2"
 endif
 
+if ($?CARMA) then
+   echo "CARMA       : $CARMA"
+endif
+if ($?CARMA_TOOLS) then
+   echo "CARMA_TOOLS : $CARMA_TOOLS"
+endif
+if ($?CARMA_PKG) then
+   echo "CARMA_PKG   : $CARMA_PKG"
+endif
 
 if ($?STARLAB_PATH) then
-   echo "STARLAB : $STARLAB_PATH"
+   echo "STARLAB     : $STARLAB_PATH"
 endif
 
 if ($?ZENOPATH) then
-   echo "ZENO    : $ZENO "
+   echo "ZENO        : $ZENO "
 endif
 
 if ($?LD_LIBRARY_PATH) then
