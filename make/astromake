@@ -48,6 +48,7 @@ if ($#argv == 1) then
 
     foreach p ($root/make/files/*)
       set pn=$p:t
+      if ($pn == CVS) continue
       set am=($pn `astromake help $pn`)
       if (-z $root/status/$am[2]) then
         set am=($am Y)
