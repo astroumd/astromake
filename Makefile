@@ -1,7 +1,7 @@
 # top level makefile for astromake
 
 help:
-	@echo No help here
+	@echo "Nothing to be made, you can proceed with 'make install'"
 
 install:	.dirs .bin
 
