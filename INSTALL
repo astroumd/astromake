@@ -15,3 +15,11 @@ Typical installations
 
     astromake all pgplot miriad karma
 
+
+
+-- 
+
+Cheating:
+
+ *  in opt you can symlink to 'astromake' packages that live someplace else.
+    usually you have to brand a status file in status/package_name

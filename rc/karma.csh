@@ -3,3 +3,9 @@
 #
 setenv KARMABASE $ASTROMAKE/opt/karma/
 source $KARMABASE/.login
+if ($?LD_LIBRARY_PATH) then
+  setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:$KARMABASE/lib
+else
+ setenv LD_LIBRARY_PATH $KARMABASE/lib
+endif
+

@@ -4,3 +4,5 @@
 
 export KARMABASE $ASTROMAKE/opt/karma/
 . $KARMABASE/.karmarc
+
+###  need to add LD_LIBRARY_PATH
