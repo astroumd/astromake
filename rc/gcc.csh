@@ -1,5 +1,5 @@
 #
-set dir=/astromake/opt/gcc
+set dir=$ASTROMAKE/opt/gcc
 
 # a_version is an astromake variable
 # a_root is used in this script
