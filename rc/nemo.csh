@@ -8,7 +8,7 @@ endif
 
 #	look for a new one
 if (-e $dir/nemo_start) then
-  setenv $NEMO $dir
+  setenv NEMO $dir
 else if ($#a_version) then
   setenv NEMO $dir/$a_version
 else if (-e $dir/VERSIONS) then
