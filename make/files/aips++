@@ -20,7 +20,8 @@ get:
 	wwwget $(URL)
 
 install:
-	tar -C $(ASTROMAKE)/opt -zxf $(FILE)
+	mkdir -p $(ROOT)/$(VERSION)
+	tar -C $(ROOT) -zxf $(FILE)
 	echo $(VERSION) > $(ASTROMAKE)/status/$(NAME)
 
 clean:
