@@ -12,10 +12,8 @@ else
 endif
 rehash
 
-unalias astroload astroloaded astromake
-
-alias astroload   'source $ASTROMAKE/make/astroload'
-alias astroloaded 'source $ASTROMAKE/make/astroloaded'
+alias astroload   source $ASTROMAKE/make/astroload
+alias astroloaded source $ASTROMAKE/make/astroloaded
 
 #		can't shut it up.....
 if (0) then
