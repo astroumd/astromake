@@ -1,9 +1,11 @@
 #VERSION=mar99
-VERSION=feb00
+#VERSION=feb00
+VERSION=mar01
 FTP=ftp://ftp.astro.umd.edu/pub/astro
 FILE=gildas-$(VERSION).tar.gz
 #SIZE=79.1Mb
-SIZE=128.5Mb
+#SIZE=128.5Mb
+SIZE=153.6Mb
 
 #  there is no easy remote version, there are a large number of small
 #  files to get... we only offer a local version
@@ -17,7 +19,7 @@ help:
 	@echo $(NAME) $(VERSION) $(SIZE)
 
 url:
-	@echo http://iram.fr
+	@echo http://iram.fr/GS/gildas.html
 
 all:	get install clean
 
