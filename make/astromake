@@ -40,7 +40,7 @@ if ($#argv == 1) then
   else if ($1 == update) then
     astromake all astromake
   else if ($1 == show) then
-    echo "$name $version"
+    echo "$name $version  ASTROMAKE=$ASTROMAKE"
     echo "Available packages:"
     echo "----------------------------------------------------------------------"
     echo "Package            Generic Name        VID   Size(Mb)  Inst"
@@ -114,10 +114,11 @@ if ($#argv == 0) then
       set verbver=" (unknown origin)"
     endif
     echo "$name $version $verbver"
-    echo "Usage: $name [-l] [-v version] action [package(s)]"
+    echo "Usage: $name [-n] [-l] [-v version] action [package(s)]"
     echo "----------------------------------------------------------------------"
     echo "Flags: "
     echo "    -l          Use local ftp ($lftp)"
+    echo "    -n          Show what would be done, but don't do it"
     echo "    -v VID      Override the current version VID"
     echo "Common actions for packages:"
     echo "    get       - only get the tar/rpm/deb files"
