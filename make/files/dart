@@ -9,7 +9,7 @@ URL=$(FTP)/$(FILE)
 
 
 NAME=dart
-ROOT=$(ASTROMAKE)/dart
+ROOT=$(ASTROMAKE)/opt/dart
 
 help:
 	@echo $(NAME) $(VERSION) $(SIZE)
