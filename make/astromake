@@ -39,6 +39,19 @@ if ($#argv == 1) then
     rm -rf /tmp/astromake >& /dev/null
   else if ($1 == update) then
     astromake all astromake
+  else if ($1 == cvsq) then
+    if (-e $ASTROMAKE/CVS) then
+        (cd $ASTROMAKE; cvs -n -q up | grep ^U)
+        (cd $ASTROMAKE; cvs -n -q up | grep ^M)
+    else
+        echo Your version of ASTROMAKE is not CVS enabled
+    endif
+  else if ($1 == cvs) then
+    if (-e $ASTROMAKE/CVS) then
+        (cd $ASTROMAKE; cvs up |& grep ^P)
+    else
+        echo Your version of ASTROMAKE is not CVS enabled
+    endif
   else if ($1 == show) then
     echo "$name $version  ASTROMAKE=$ASTROMAKE"
     echo "Available packages:"
