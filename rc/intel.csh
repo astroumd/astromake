@@ -1,6 +1,7 @@
 #! /bin/tcsh
 #
-# for astromake, hardcoded for compiler80 and compiler70
+# for astromake, hardcoded for compiler80 and compiler70, 
+# nov-2004:  and now V8.1, which doesn't use the compilerNN directory anymore....
 
 set dir=$ASTROMAKE/opt/intel
 
@@ -15,11 +16,28 @@ else if (-e $dir/`cat $ASTROMAKE/status/intel`) then
   set version=`cat $ASTROMAKE/status/intel`
 endif
 
+#----------------------------------------------------------------------
+# 8.1
+
+if ($version == 81) then
+
+if !($?PATH) then
+    setenv PATH $ASTROMAKE/opt/intel/bin
+else
+    setenv PATH $ASTROMAKE/opt/intel/bin:$PATH
+endif
+
+if !($?MANPATH) then
+    setenv MANPATH $ASTROMAKE/opt/intel/man:`man -w`
+else
+    setenv MANPATH $ASTROMAKE/opt/intel/man:$MANPATH
+endif
+
 
 #----------------------------------------------------------------------
 # compiler80
 
-if ($version == 80) then
+else if ($version == 80) then
 
 if !($?PATH) then
     setenv PATH $ASTROMAKE/opt/intel/compiler80/bin
@@ -94,4 +112,4 @@ else
   echo Version $version not implemented for intel compiler
 endif
 
-
+rehash
