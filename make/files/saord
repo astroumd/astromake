@@ -1,0 +1,35 @@
+FTP=ftp://sao-ftp.harvard.edu/pub/rd
+#FILE1=saord_1.8_linux-glibc.tar.gz
+FILE1=saord_1.8_linux.tar.gz
+VERSION=1.8
+SIZE=20.3Mb
+
+
+URL1=$(FTP)//$(FILE1)
+
+
+ROOT=/usr/local/
+NAME=saord
+
+help:
+	@echo $(NAME) $(VERSION) $(SIZE)
+
+url:
+	@echo ftp://sao-ftp.harvard.edu/pub/rd/
+
+all:	get install clean
+
+get:
+	wwwget $(URL1)
+
+
+install:
+	tar -C $(ROOT) -zxf $(FILE1)
+	echo $(VERSION) > /usr/local/astro/status/saord
+
+clean:
+	rm -f $(FILE1)
+
+remove:
+	rm -rf $(ROOT)/$(NAME)
+	rm -f /usr/local/astro/status/saord
