@@ -26,6 +26,7 @@ install:
 	-mkdir $(ROOT)
 	tar -C $(ROOT) -zxf $(FILE)
 	echo $(VERSION) > $(ASTROMAKE)/status/$(NAME)
+	echo You will most likely have to edit the loc/clients file
 
 clean:
 	rm -f $(FILE)
