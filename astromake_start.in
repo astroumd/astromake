@@ -1,0 +1,7 @@
+#    ASTROMAKE V1.x setup
+#    
+setenv ASTROMAKE  @ASTROMAKE@
+
+alias astroload 'set _astroload=(\!*); source $ASTROMAKE/make/astroload'
+
+
