@@ -1,3 +1,5 @@
+#  warning: multiversion not supported yet
+
 #VERSION=mar99
 #VERSION=feb00
 VERSION=mar01
@@ -27,7 +29,7 @@ get:
 	wwwget $(URL)
 
 install:
-	-mkdir $(ROOT)
+	-mkdir -p $(ROOT)
 	tar -C $(ROOT) -zxf $(FILE)
 	echo $(VERSION) > $(ASTROMAKE)/status/$(NAME)
 
