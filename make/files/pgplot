@@ -1,0 +1,31 @@
+FTP=ftp://linux.nrao.edu/pub/linux/packages/RPMS/i386/Glibc
+VERSION=5.2.0
+FILE=pgplot-$(VERSION)-3u.i386.rpm
+RPM=pgplot-$(VERSION)-3u
+SIZE=0.8Mb
+
+URL=$(FTP)/$(FILE)
+
+NAME=pgplot
+
+help:
+	@echo $(NAME) $(VERSION) $(SIZE)
+
+url:
+	@echo http://astro.caltech.edu/~tjp/pgplot/
+
+all:	get install clean
+
+get:
+	wwwget $(URL)
+
+install:
+	rpm -i $(FILE)
+	echo $(VERSION) > /usr/local/astro/status/$(NAME)
+
+clean:
+	rm -f $(FILE)
+
+remove:
+	rpm -e $(RPM)
+	rm -f /usr/local/astro/status/$(NAME)
