@@ -1,7 +1,7 @@
 FTP=ftp://ftp.astro.umd.edu/pub/astro/
-VERSION=1.7.10
+VERSION=1.7.11
 FILE=karma-$(VERSION).tgz
-SIZE=14.4Mb
+SIZE=10.4Mb
 
 URL=$(FTP)/$(FILE)
 
