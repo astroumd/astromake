@@ -62,22 +62,26 @@ if ($#argv == 1) then
   else if ($1 == versions) then
     echo "$name $version"
     echo "Available versions:"
-    echo "----------------------------------------------------------------------"
-    echo "Package              VERSIONS (first one is the default)"
-    echo "-------              -----------------------------------"
+    echo "-------------------------------------------------------------------------------------------"
+    echo "Package              VERSIONS (first one is the default, [] is the formal astromake version"
+    echo "-------              ----------------------------------------------------------------------"
 
     foreach d ($root/opt/*)
+      set p=$d:t
       if ($d == CVS) continue
       if (-e $d/VERSIONS) then
 	set vid=(`cat $d/VERSIONS`)
       else
         set vid=()
       endif
+      if (-e $root/status/$p) then
+        set vid=($vid \[`cat $root/status/$p`\])
+      endif
       set am=$d:t
       echo $am | awk '{printf("%-20s %s\n",$1,"'"$vid"'")}'
     end
 
-    echo "----------------------------------------------------------------------"
+    echo "-------------------------------------------------------------------------------------------"
     echo "You can load packages via:"
     echo "    astroload [-v VERSION_ID] package_name"
   endif
