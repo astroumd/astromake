@@ -1457,8 +1457,12 @@ fi
 
 echo "
 -------------------------------------------------------------------------
-All done, bla bla bla
-
+Just proceed with
+      make install
+and when this is done activate astromake in your shell by adding the
+command
+      source $ASTROMAKE/astromake_start
+to your c-shell startup file.
 -------------------------------------------------------------------------
 "
 

@@ -10,6 +10,7 @@ if ("$path[1]" == ".") then
 else 
   if ($path[1] != $ASTROMAKE/bin) set path=($ASTROMAKE/bin $path)      
 endif
+rehash
 
 alias astroload 'set _astroload=(\!*); source $ASTROMAKE/make/astroload'
 
