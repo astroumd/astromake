@@ -53,7 +53,7 @@ ploop:
         set astroload=($astroload $package)
     endif
   else if (-d $ASTROMAKE/opt/$package) then
-    echo Package $package does not have a status, yet exists 
+    echo Package $package does not have a status file in $ASTROMAKE/status
     if (-e $ASTROMAKE/rc/$package.csh) then
     	source $ASTROMAKE/rc/$package.csh
         if ($?a_version) then
@@ -66,7 +66,7 @@ ploop:
 	echo No startup script $package.csh found
     endif
   else
-    echo Package $package does not exist, try the command: astromake show or astromake versions
+    echo "Package $package does not exist, try the command: astromake show or astromake versions"
   endif
 goto ploop
 

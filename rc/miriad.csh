@@ -31,3 +31,14 @@ endif
 
 # cheat, temp solution for wip:
 setenv WIPHELP $MIR/borrow/wip/wiphelp.dat
+
+
+# LD_LIBRARY_PATH
+
+if ($?LD_LIBRARY_PATH) then
+  setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:$MIRLIB
+else
+ setenv LD_LIBRARY_PATH $MIRLIB
+endif
+
+

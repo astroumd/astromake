@@ -29,7 +29,7 @@ if ($?a_root) then
    endif
    rehash
 
-   if (0) then
+   if (1) then
    if ($?LD_LIBRARY_PATH) then
      setenv LD_LIBRARY_PATH $dir/lib:${LD_LIBRARY_PATH}
    else
