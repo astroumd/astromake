@@ -1,0 +1,39 @@
+# in development
+FTP=http://www.journals.uchicago.edu/AAS/AASTeX/
+
+VERSION=502
+FILE=$(NAME)$(VERSION).tgz
+SIZE=0.44MB
+
+
+URL=$(FTP)/$(FILE)
+
+
+NAME=aastex
+ROOT=/usr/local/doc
+
+help:
+	@echo $(NAME) $(VERSION) $(SIZE)
+
+url:
+	@echo http://www.journals.uchicago.edu/AAS/AASTeX/
+
+all:	get install clean
+
+get:
+	wwwget $(URL)
+
+install:
+	if [ ! -d $(ROOT) ]; then \
+	  mkdir $(ROOT); \
+	fi
+	tar -C $(ROOT) -zxf $(FILE)
+	(cd $(ROOT)/$(NAME)$(VERSION); $(MAKE) install;  texconfig rehash)
+	echo $(VERSION) > /usr/local/astro/status/$(NAME)
+
+clean:
+	rm -f $(FILE)
+
+remove:
+	rm -r $(ROOT)
+	rm -f /usr/local/astro/status/$(NAME)
