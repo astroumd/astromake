@@ -1,0 +1,33 @@
+FTP=ftp://ftp.astro.umd.edu/pub/astro
+FILE=xgobi.tar.gz
+VERSION=sep2000
+SIZE=7.6MB
+
+URL=$(FTP)/$(FILE)
+
+ROOT=/usr/local
+NAME=xgobi
+
+help:
+	@echo $(NAME) $(VERSION) $(SIZE)
+
+url:
+	@echo http://www.research.att.com/~andreas/xgobi/
+
+all:	get install clean
+
+get:
+	wwwget $(URL)
+	@echo SM currently requires a one-time site licence
+
+install:
+	tar -C $(ROOT) -zxf $(FILE)
+	echo $(VERSION) > /usr/local/astro/status/$(NAME)
+
+clean:
+	rm -f $(FILE)
+	rm -f /usr/local/astro/status/$(NAME)
+
+remove:
+	@echo Not really removing xgobi...
+	rm -f /usr/local/astro/status/$(NAME)
