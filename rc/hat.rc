@@ -1,0 +1,8 @@
+#! /bin/csh -f
+#
+
+
+set path=(. $ASTROMAKE/opt/hat/bin $path)
+rehash
+
+
