@@ -1,2 +1,6 @@
-#
-source $ASTROMAKE/opt/nemo/nemo_start
+
+#  set root directory
+source $ASTROMAKE/opt/nemo/nemo_root
+
+#  add environment
+source $NEMO/nemo_start
