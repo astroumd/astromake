@@ -12,6 +12,9 @@ else
 endif
 rehash
 
-alias astroload 'set _astroload=(\!*); source $ASTROMAKE/make/astroload'
+unalias astroload astroloaded
+
+alias astroload   'source $ASTROMAKE/make/astroload'
+alias astroloaded 'source $ASTROMAKE/make/astroloaded'
 
 

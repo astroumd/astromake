@@ -6,10 +6,9 @@
 #    *  base all packages in /usr/local/astro, so we can use
 #	    another 'root' to install astromake without becoming root.
 
-set root=/usr/local/astro/
+set root=$ASTROMAKE
 set name=$0:t
-set version=0.97
-#set lftp=ftp://rigel.astro.umd.edu/pub/astro/
+set version=`cat $ASTROMAKE/VERSION`
 set lftp=ftp://ftp.astro.umd.edu/progs/bima/astromake/
 set args=()
 

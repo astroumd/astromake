@@ -1,7 +1,7 @@
 #---do not execute-source this in csh
 # add the following alias to your .cshrc file:
 #
-# alias astroload 'set _astroload=(\!*); source /usr/local/astro/make/astroload'
+# alias astroload 'set _astroload=(\!*); source $ASTROMAKE/make/astroload'
 # 
 # in order to more easily load packages on the fly
 #
@@ -9,19 +9,17 @@
 if ($?astroload == 0) set astroload=()
 
 
-foreach package ($_astroload)
-  if (-e /usr/local/astro/status/$package) then
-    if ($?prompt) echo Loading $package version `cat /usr/local/astro/status/$package`
-    source /usr/local/astro/rc/$package.csh
+foreach package ($*)
+  if (-e $ASTROMAKE/status/$package) then
+    if ($?prompt) echo Loading $package version `cat $ASTROMAKE/status/$package`
+    source $ASTROMAKE/rc/$package.csh 
     set astroload=($astroload $package)
   else
     echo Package $package does not exist
   endif
 end
 
-if ($#_astroload == 0) then
+if ($#argv == 0) then
   echo The following astromake packages have been loaded in this shell with astroload:
   echo $astroload
 endif
-
-unset _astroload

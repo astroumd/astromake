@@ -3,13 +3,15 @@
 #   This script is a bootstrap loader for ASTROMAKE. It picks up the most
 #   recent compressed tar file from Maryland, and installs it. You have to
 #   be root for this, or a user which has write permission to /usr/local/astro
+#
+#   Usually one would use CVS to install it though.
 
 
 # set local aliases
 alias stamp 'date +%H:%M:%S'
 
 # set defaults
-set site=rigel.astro.umd.edu
+set site=ftp.astro.umd.edu
 set dir=pub/astro
 set file=astromake.tar
 
