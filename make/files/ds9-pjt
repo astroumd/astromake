@@ -1,0 +1,34 @@
+FILE=ds9.tar.gz
+VERSION=2.0
+SIZE=7.2Mb
+FTP=ftp://ftp.astro.umd.edu/pub/astro
+
+
+URL=$(FTP)//$(FILE)
+
+
+ROOT=/usr/local/
+NAME=ds9
+
+help:
+	@echo $(NAME) $(VERSION) $(SIZE)
+
+url:
+	 @echo http://hea-www.harvard.edu/RD/ds9/
+
+all:	get install clean
+
+get:
+	wwwget $(URL)
+
+
+install:
+	tar -C $(ROOT) -zxf $(FILE)
+	echo $(VERSION) > /usr/local/astro/status/ds9
+
+clean:
+	rm -f $(FILE)
+
+remove:
+	rm -rf $(ROOT)/$(NAME)
+	rm -f /usr/local/astro/status/ds9
