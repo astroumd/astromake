@@ -1,0 +1,33 @@
+FTP=ftp://ftp.astro.umd.edu/pub/astro/
+VERSION=1.6.33
+FILE=karma-$(VERSION).tgz
+SIZE=8.8Mb
+
+URL=$(FTP)/$(FILE)
+
+ROOT=/usr/local
+NAME=karma
+
+help:
+	@echo $(NAME) $(VERSION) $(SIZE)
+
+url:
+	@echo http://www.atnf.csiro.au/karma/
+
+all:	get install clean
+
+get:
+	wwwget $(URL)
+
+
+install:
+	tar -C $(ROOT) -zxf $(FILE)
+	echo $(VERSION) > /usr/local/astro/status/$(NAME)
+
+clean:
+	rm -f $(FILE)
+	rm -f /usr/local/astro/status/$(NAME)
+
+remove:
+	rm -rf $(ROOT)/karma
+	rm -f /usr/local/astro/status/$(NAME)
