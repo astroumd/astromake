@@ -1,7 +1,7 @@
 #
 #   tries to report what the current user environment contains
 #
-#   alias whatsup 'source ~/bin/whatsup'
+#   alias astroloaded 'source ~/bin/astroloaded'
 #
 
 if ($?AIPSPATH) then
@@ -55,7 +55,7 @@ if ($?LD_PRELOAD) then
 endif
 
 if ($?MANPATH) then
-   echo "MANPATH  D      : $MANPATH"
+   echo "MANPATH         : $MANPATH"
 endif
 
 

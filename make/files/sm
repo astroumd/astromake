@@ -1,7 +1,7 @@
 FTP=ftp://ftp.astro.umd.edu/pub/astro/
 FILE=sm.tar.gz
-VERSION=2.4
-SIZE=0.96Mb
+VERSION=2.4.16
+SIZE=2.0Mb
 
 URL=$(FTP)/$(FILE)
 
