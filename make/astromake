@@ -129,6 +129,7 @@ if ($#argv == 0) then
     echo "    url       - show the URL where more info resides"
     echo "    help      - show name/version/size(MB)"
     echo "    remove    - attempt to remove the whole package from disk"
+    echo "    news      - show latest news from local astromake maintainer"
     echo ""
     echo "Common other actions:"
     echo ""

@@ -1,6 +1,6 @@
 FILE=ds9.tar.gz
-VERSION=2.1b5
-SIZE=8.0Mb
+VERSION=2.1b6
+SIZE=8.1Mb
 FTP=ftp://ftp.astro.umd.edu/pub/astro
 
 URL=$(FTP)//$(FILE)
