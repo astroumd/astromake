@@ -1,0 +1,36 @@
+VERSION=3.2.0
+FTP1=ftp://iraf.noao.edu/contrib/xephem/xephem-$(VERSION)
+FILE1=xephem-$(VERSION).tar.gz
+FTP2=$(FTP1)/executables_$(VERSION)/
+FILE2=xephem-$(VERSION).linux.gz
+SIZE=6.8Mb
+
+URL1=$(FTP1)/$(FILE1)
+URL2=$(FTP2)/$(FILE2)
+
+NAME=xephem
+
+help:
+	@echo $(NAME) $(VERSION) $(SIZE)
+
+url:
+	@echo http://www.ClearSkyInstitute.com/xephem/xephem.html
+#	@echo http://iraf.noao.edu/~ecdowney/xephem.html
+
+all:	get install clean
+
+get:
+	wwwget $(URL1) $(URL2)
+
+install:
+	chmod +x $(FILE2); cp $(FILE2) /usr/local/bin/xephem
+	tar -C /usr/local/astro/packages -zxf $(FILE1)
+	ln -sf /usr/local/astro/packages/xephem-3.1  /usr/local/astro/packages/xephem
+	echo $(VERSION) > /usr/local/astro/status/$(NAME)
+
+clean:
+	rm -f $(FILE1) $(FILE2)
+
+remove:
+	rm -rf /usr/local/astro/packages/xephem*
+	rm -f /usr/local/astro/status/$(NAME)
