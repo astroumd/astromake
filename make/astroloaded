@@ -12,6 +12,10 @@ if ($?gip_root) then
    echo "GIPSY   : $gip_root"
 endif 
 
+if ($?GLOBUS_LOCATION) then
+   echo "GLOBUS  : $GLOBUS_LOCATION"
+endif
+
 if ($?KARMABASE) then
    echo "KARMA   : $KARMABASE - version $KARMA_VERSION"
 endif
