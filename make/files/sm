@@ -23,6 +23,7 @@ get:
 install:
 	tar -C $(ROOT) -zxf $(FILE)
 	echo $(VERSION) > $(ASTROMAKE)/status/$(NAME)
+	(cd $(ROOT)/sm; sed s,/astromake/,$(ASTROMAKE)/,g .sm > .sm1 ; mv .sm1 .sm)
 
 clean:
 	rm -f $(FILE)
