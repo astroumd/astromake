@@ -50,6 +50,11 @@ if ($?LD_LIBRARY_PATH) then
 endif
 
 
+if ($?LD_PRELOAD) then
+   echo "LD_PRELOAD      : $LD_PRELOAD"
+endif
+
+
 
 
 
