@@ -21,7 +21,7 @@ via a TARFILE:  (normally ftp.astro.umd.edu:/pub/astro)
 
 Upgrades:
 
-    astromake all astromake
+    cvs update
 
 
 Typical installations
@@ -30,7 +30,8 @@ Typical installations
 
 Typical usage to load a package in a shell
 
-    astroload 
+    astroload miriad nemo
+    astroload -v 1.5 aips++
 
 -- 
 
