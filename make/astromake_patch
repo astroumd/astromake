@@ -1,0 +1,20 @@
+#! /bin/csh -f
+#
+#  simplify patching something like a $ASTROMAKE string into files
+#
+if ($#argv < 3) then
+  echo "Usage: $0 old-string new-string file(s)"
+  exit 0
+endif
+
+set old=$1
+set new=$2
+shift
+shift
+
+foreach file ($*)
+  echo astromake_patch: $file
+  sed s,$old,$new,g < $file > $file.tmp
+  diff $file.tmp $file
+  mv $file.tmp $file
+end

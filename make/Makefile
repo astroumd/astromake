@@ -4,7 +4,7 @@ FTPDIR = astro
 TARNAME = $(FTPDIR)/astromake.tar.gz
 #
 
-SRCBIN = astromake wwwget
+SRCBIN = astromake wwwget astromake_patch
 #DESTBIN = $(ASTROMAKE)/bin
 DESTBIN = ../bin
 
