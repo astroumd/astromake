@@ -1,0 +1,11 @@
+Experimental astronomy setup shell on top or tgz/rpm/deb files.....
+
+This setup shell uses makefiles, each package will have a makefile with
+a minimum list of targets, and a c-shell based RC file to be sourced by
+the user. The package ``Makefile' reside in /usr/local/astro/make/files,
+the ``csh'' source files in /usr/local/astro/rc. You can check for
+a counterpart in /usr/local/astro/status if a package has been installed.
+
+
+The 'astro' link is merely to give you the possibilty for a local mirror, 
+and that's where it should be
