@@ -2,6 +2,7 @@
 
 help:
 	@echo "Nothing to be made, you can proceed with 'make install'"
+	@echo "you may need to run config.status to regenerate config file"
 
 install:	.dirs .bin
 
