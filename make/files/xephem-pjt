@@ -1,0 +1,37 @@
+VERSION=3.2.3
+FTP=ftp://ftp.astro.umd.edu/pub/astro
+FILE=xephem-$(VERSION).linux.gz
+SIZE=4.0Mb
+
+URL=$(FTP)/$(FILE)
+
+NAME=xephem
+
+help:
+	@echo $(NAME) $(VERSION) $(SIZE)
+
+url:
+	@echo http://www.ClearSkyInstitute.com/xephem/xephem.html
+
+all:	get install clean
+
+get:
+	wwwget $(URL)
+
+install:
+	tar -C / -zxf $(FILE)
+	echo $(VERSION) > /usr/local/astro/status/$(NAME)
+
+clean:
+	rm -f $(FILE)
+
+remove:
+	rm -rf /usr/local/lib/XEphem
+	rm -f /usr/local/bin/xephem
+	rm -f /usr/local/astro/status/$(NAME)
+
+make-tar:
+	tar -zcf /tmp/$(FILE) \
+		/usr/local/bin/xephem \
+		/usr/local/lib/XEphem \
+		/usr/lib/X11/app-defaults/XEphem

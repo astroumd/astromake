@@ -1,0 +1,33 @@
+FTP=ftp://ftp.astro.umd.edu/pub/astro/
+FILE=sm.tar.gz
+VERSION=2.4
+SIZE=0.96Mb
+
+URL=$(FTP)/$(FILE)
+
+ROOT=/
+NAME=sm
+
+help:
+	@echo $(NAME) $(VERSION) $(SIZE)
+
+url:
+	@echo http://www.astro.princeton.edu/~rhl/sm/
+
+all:	get install clean
+
+get:
+	wwwget $(URL)
+	@echo SM currently requires a one-time site licence
+
+install:
+	tar -C $(ROOT) -zxf $(FILE)
+	echo $(VERSION) > /usr/local/astro/status/$(NAME)
+
+clean:
+	rm -f $(FILE)
+	rm -f /usr/local/astro/status/$(NAME)
+
+remove:
+	@echo Not really removing sm: /usr/local/lib/sm, /usr/local/bin/sm
+	rm -f /usr/local/astro/status/$(NAME)
