@@ -9,36 +9,44 @@ set dir=$ASTROMAKE/opt/miriad
 if ($#a_version == 0) then
   if (-e $dir/VERSIONS) then
     # take the first entry from the list
-    setenv MIR $dir/`head -1 $dir/VERSIONS`
+    set mir=$dir/`head -1 $dir/VERSIONS`
   else
     # must be just one version, so find out from the status file
     if (-e $ASTROMAKE/status/miriad) then
-      setenv MIR $dir/`cat $ASTROMAKE/status/miriad`
+      set mir=$dir/`cat $ASTROMAKE/status/miriad`
     endif     
   endif
 else
-  setenv MIR $dir/$a_version[1]
-endif
-unsetenv MIRHELLO
-
-#  add environment  (linux only for now)
-if (-e $MIR/MIRRC.linux) then
-  #	dereference any symlinks
-  # setenv MIR `ls -l $MIR | awk '{print $NF}'`
-  source $MIR/MIRRC.linux
+  set mir=$dir/$a_version[1]
 endif
 
+if (-e $mir/MIRRC.linux) then
 
-# cheat, temp solution for wip:
-setenv WIPHELP $MIR/borrow/wip/wiphelp.dat
+  unsetenv MIRHELLO
+
+  #  add environment  (linux only for now)
+  if (-e $MIR/MIRRC.linux) then
+    #	dereference any symlinks
+    # setenv MIR `ls -l $MIR | awk '{print $NF}'`
+    source $MIR/MIRRC.linux
+  endif
 
 
-# LD_LIBRARY_PATH
+  # cheat, temp solution for wip:
+  setenv WIPHELP $MIR/borrow/wip/wiphelp.dat
 
-if ($?LD_LIBRARY_PATH) then
-  setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:$MIRLIB
+
+  # LD_LIBRARY_PATH
+
+  if ($?LD_LIBRARY_PATH) then
+    setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:$MIRLIB
+  else
+    setenv LD_LIBRARY_PATH $MIRLIB
+  endif
+
 else
- setenv LD_LIBRARY_PATH $MIRLIB
+  echo "$mir does not contain a recognized miriad tree"
+  exit 1
 endif
 
 
