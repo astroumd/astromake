@@ -63,7 +63,8 @@ if ($#argv == 1) then
     echo "$name $version"
     echo "Available versions:"
     echo "-------------------------------------------------------------------------------------------"
-    echo "Package              VERSIONS (first one is the default, [] is the formal astromake version"
+    echo "Package              VERSION_ID's (first one is the default, "
+    echo "                                   [] is the formal astromake version"
     echo "-------              ----------------------------------------------------------------------"
 
     foreach d ($root/opt/*)

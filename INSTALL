@@ -8,7 +8,7 @@ First time install via CVS:   (recommended)
     cd astromake
     ./configure
     make install
-    source astromake_start
+    source astromake_start			(csh shell assumed !!!)
 
 First time install via a TARFILE:  (normally ftp.astro.umd.edu:/pub/astro)
 

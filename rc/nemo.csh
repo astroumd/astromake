@@ -1,7 +1,12 @@
 
 set dir=$ASTROMAKE/opt/nemo
 
+#	remove an old one if one is there
+if ($?NEMO) then
+  source $NEMO/nemo_end
+endif
 
+#	look for a new one
 if (-e $dir/nemo_start) then
   setenv $NEMO $dir
 else if ($#a_version) then
