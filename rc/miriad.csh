@@ -21,7 +21,7 @@ else
 endif
 
 if (-e $mir/MIRRC.linux) then
-
+  setenv MIR $mir
   unsetenv MIRHELLO
 
   #  add environment  (linux only for now)
