@@ -26,7 +26,6 @@ install:
 
 clean:
 	rm -f $(FILE)
-	rm -f $(ASTROMAKE)/status/$(NAME)
 
 remove:
 	@echo Not really removing xgobi...
