@@ -14,6 +14,7 @@ else
     setenv IA32_CURRENT_LD_LIBRARY_PATH $LD_LIBRARY_PATH
     endif
 
+#setenv IA32ROOT $ASTROMAKE/opt/intel/compiler50/ia32
 #setenv IA32ROOT $ASTROMAKE/opt/intel/compiler60/ia32
 setenv IA32ROOT $ASTROMAKE/opt/intel/compiler70/ia32
 if !($?IA32_SAVE_PATH) then
