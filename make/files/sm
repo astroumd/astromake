@@ -5,7 +5,7 @@ SIZE=0.96Mb
 
 URL=$(FTP)/$(FILE)
 
-ROOT=/
+ROOT=$(ASTROMAKE)/opt/
 NAME=sm
 
 help:
@@ -28,5 +28,5 @@ clean:
 	rm -f $(FILE)
 
 remove:
-	@echo Not really removing sm: /usr/local/lib/sm, /usr/local/bin/sm
+	rm -rf $(ASTROMAKE/opt/sm
 	rm -f $(ASTROMAKE)/status/$(NAME)
