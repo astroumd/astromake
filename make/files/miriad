@@ -1,7 +1,7 @@
 FTP=ftp://ftp.astro.umd.edu/pub/astro
-VERSION=01jun15
+VERSION=03feb23
 FILE=miriad-$(VERSION).tgz
-SIZE=85.8Mb
+SIZE=95.0Mb
 
 URL=$(FTP)/$(FILE)
 
