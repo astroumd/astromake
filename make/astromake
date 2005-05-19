@@ -74,7 +74,7 @@ if ($#argv == 1) then
     echo "----------------------------------------------------------------------"
   else if ($1 == versions) then
     echo "$name $version"
-    echo "Available versions:"
+    echo "Available versions on ${ASTROMAKE}:"
     echo "-------------------------------------------------------------------------------------------"
     echo "Package              VERSION_ID's (first one is the default, "
     echo "                                   [] is the formal astromake version"
