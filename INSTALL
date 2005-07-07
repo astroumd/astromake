@@ -49,3 +49,22 @@ Cheating:
    that live someplace else in your filesystem.
    Usually you have to brand a fake status file in $ASTROMAKE/status/package_name, 
    link them in $ASTROMAKE/opt/package_name.
+
+==
+
+Adding a package manually:
+
+  1) add it in $ASTROMAKE/opt/<name>
+     or
+               $ASTROMAKE/opt/<name>/<version>
+               $ASTROMAKE/opt/<name>/VERSIONS
+     when you also maintain a simple VERSIONS text file
+
+  2) make sure you have a default version id in $ASTROMAKE/status/<name>, e.g.
+
+	echo 2.3 > $ASTROMAKE/status/foo
+
+  3) make sure your package has client script(s) in $ASTROMAKE/rc/<name>.csh
+     and <name>.sh for the two major Unix shell flavors
+
+  
