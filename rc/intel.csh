@@ -39,6 +39,11 @@ else
     setenv MANPATH $ASTROMAKE/opt/intel/man:$MANPATH
 endif
 
+if !($?NLSPATH) then
+    setenv NLSPATH $ASTROMAKE/opt/intel/lib/ifcore_msg.cat
+else
+    setenv NLSPATH $ASTROMAKE/opt/intel/lib/ifcore_msg.cat:$NLSPATH
+endif
 
 #----------------------------------------------------------------------
 # compiler80
@@ -69,6 +74,11 @@ else
     setenv INTEL_LICENSE_FILE $ASTROMAKE/opt/intel/compiler80/licenses:$INTEL_LICENSE_FILE
 endif
 
+if !($?NLSPATH) then
+    setenv NLSPATH $ASTROMAKE/opt/intel/compiler80/lib/ifcore_msg.cat
+else
+    setenv NLSPATH $ASTROMAKE/opt/intel/compiler80/lib/ifcore_msg.cat:$NLSPATH
+endif
 
 #----------------------------------------------------------------------
 # compiler70
