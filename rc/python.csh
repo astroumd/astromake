@@ -1,35 +1,40 @@
-#
-set dir=$ASTROMAKE/opt/python
+# Environment manipulation for Python
+# Effects: Adds directory to PATH, MANPATH
 
-# a_version is an astromake variable
-# a_root is used in this script
+# You should use code like this to find the directory for the application
+set app_name=python
 
-unset a_root
-
+#Standard code to find directory for requested version
+set dir=$ASTROMAKE/opt/$app_name
+set a_root=$dir
+#a specific version has been requested ($a_version is defined by astromake)
 if ($#a_version > 0) then
-
-  set a_root=$dir/$a_version
-
+	set a_root=$dir/$a_version
+#No version requested, check VERSIONS file for preference
 else if (-e $dir/VERSIONS) then
-
-  set version=`head -1 $dir/VERSIONS`
-  set a_root=$dir/$version
-
-else if (-e $dir/`cat $ASTROMAKE/status/python`) then
-
-  set a_root=$dir/`cat $ASTROMAKE/status/python`
-
+	#take first one in VERSIONS file
+	set version=`head -1 $dir/VERSIONS`
+	set a_root=$dir/$version
+#No VERSIONS file, get version number from status file
+else if (-e $dir/`cat $ASTROMAKE/status/$app_name`) then
+  set a_root=$dir/`cat $ASTROMAKE/status/$app_name`
 endif
 
-if ($?a_root) then
-   if ($path[1] == ".") then
-	set path=(. $a_root/bin $path[2-])
-   else
-	set path=($a_root/bin $path)
-   endif
-   rehash
+# Now make your environment modifications
 
+if !($?PATH) then
+    setenv PATH $a_root/bin
+else
+    setenv PATH $a_root/bin:$PATH
 endif
 
+if !($?MANPATH) then
+    setenv MANPATH $a_root/man:`man -w`
+else
+    setenv MANPATH $a_root/man:$MANPATH
+endif
+
+#Clear the variables we used
+unset app_name
 unset dir
 unset a_root
