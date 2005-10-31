@@ -2,6 +2,8 @@
 #
 # for astromake, hardcoded for compiler80 and compiler70, 
 # nov-2004:  and now V8.1, which doesn't use the compilerNN directory anymore....
+# oct 2005:  comments to prepare for V9.0 (which was released june 2005)
+
 
 set dir=$ASTROMAKE/opt/intel
 
@@ -15,6 +17,15 @@ else if (-e $dir/VERSIONS) then
 else if (-e $dir/`cat $ASTROMAKE/status/intel`) then
   set version=`cat $ASTROMAKE/status/intel`
 endif
+
+
+#----------------------------------------------------------------------
+# 9.0
+
+#source /opt/intel/fc/9.0/bin/ifortvars.csh
+#source /opt/intel/cc/9.0/bin/iccvars.csh
+#source /opt/intel/idb/9.0/bin/idbvars.csh
+
 
 #----------------------------------------------------------------------
 # 8.1
