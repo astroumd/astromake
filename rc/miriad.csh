@@ -44,6 +44,10 @@ if (-e $mir/MIRRC.linux) then
     setenv LD_LIBRARY_PATH $MIRLIB
   endif
 
+else if (-e $mir/miriad_start.csh) then
+
+  source $mir/miriad_start.csh
+
 else
   echo "$mir does not contain a recognized miriad tree"
   exit 1
