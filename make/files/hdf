@@ -1,7 +1,7 @@
-FTP=ftp://hdf.ncsa.uiuc.edu/HDF/HDF_Current/bin/linux/
-VERSION=4.1r4
-FILE=$(VERSION)_linux.tar.gz
-SIZE=14.8Mb
+FTP=ftp://ftp.hdfgroup.org/HDF/HDF_Current/bin/linux/
+VERSION=4.2r1
+FILE=$(VERSION)-linux.tar.gz
+SIZE=5.6Mb
 
 URL=$(FTP)/$(FILE)
 
@@ -12,7 +12,7 @@ help:
 	@echo $(NAME) $(VERSION) $(SIZE)
 
 url:
-	@echo http://hdf.ncsa.uiuc.edu/
+	@echo http://www.hdfgroup.org/
 
 all:	get install clean
 
