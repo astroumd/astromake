@@ -20,17 +20,26 @@ endif
 
 
 #----------------------------------------------------------------------
+# 9.1
+if ($version == 91) then
+  source $ASTROMAKE/opt/intel/fc/9.1.039/bin/ifortvars.csh
+  source $ASTROMAKE/opt/intel/cc/9.1.043/bin/iccvars.csh
+  # somehow idb failed to install
+  #source /opt/intel/idb/9.0/bin/idbvars.csh
+
+#----------------------------------------------------------------------
 # 9.0
 
-#source /opt/intel/fc/9.0/bin/ifortvars.csh
-#source /opt/intel/cc/9.0/bin/iccvars.csh
-#source /opt/intel/idb/9.0/bin/idbvars.csh
-
+else if ($version == 90) then
+  #source /opt/intel/fc/9.0/bin/ifortvars.csh
+  #source /opt/intel/cc/9.0/bin/iccvars.csh
+  #source /opt/intel/idb/9.0/bin/idbvars.csh
+  echo Not yet done
 
 #----------------------------------------------------------------------
 # 8.1
 
-if ($version == 81) then
+else if ($version == 81) then
 
 if !($?PATH) then
     setenv PATH $ASTROMAKE/opt/intel/bin
