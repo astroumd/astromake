@@ -20,8 +20,17 @@ endif
 
 
 #----------------------------------------------------------------------
+# 10.0
+if ($version == 10) then
+  source $ASTROMAKE/opt/intel/fc/10.0.026/bin/ifortvars.csh
+  source $ASTROMAKE/opt/intel/cc/10.0.026/bin/iccvars.csh
+  source $ASTROMAKE/opt/intel/idb/10.0.026/bin/idbvars.csh
+  # somehow idb failed to install
+  #source /opt/intel/idb/9.0/bin/idbvars.csh
+
+#----------------------------------------------------------------------
 # 9.1
-if ($version == 91) then
+else if ($version == 91) then
   source $ASTROMAKE/opt/intel/fc/9.1.039/bin/ifortvars.csh
   source $ASTROMAKE/opt/intel/cc/9.1.043/bin/iccvars.csh
   # somehow idb failed to install
