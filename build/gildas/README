@@ -1,0 +1,16 @@
+See also:   http://www.iram.fr/IRAMFR/GILDAS/
+
+
+grab the two tar balls, in my case
+   gildas-doc-dec07a.tar.gz 
+   gildas-src-dec07a.tar.gz
+
+
+tar zxf gildas-src-dec07a.tar.gz 
+cd gildas-src-dec07a
+astroload intel			need intel compiler
+sh				(bash doesn't inherit the shell??)
+source admin/gildas-env.sh 
+make
+make install
+
