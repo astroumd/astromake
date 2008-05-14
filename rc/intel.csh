@@ -3,6 +3,7 @@
 # for astromake, hardcoded for compiler80 and compiler70, 
 # nov-2004:  and now V8.1, which doesn't use the compilerNN directory anymore....
 # oct 2005:  comments to prepare for V9.0 (which was released june 2005)
+# may 2008:  unified for 10.1 style 
 
 
 set dir=$ASTROMAKE/opt/intel
@@ -21,10 +22,10 @@ endif
 
 #----------------------------------------------------------------------
 # 10.0
-if ($version == 10) then
-  source $ASTROMAKE/opt/intel/fc/10.0.026/bin/ifortvars.csh
-  source $ASTROMAKE/opt/intel/cc/10.0.026/bin/iccvars.csh
-  source $ASTROMAKE/opt/intel/idb/10.0.026/bin/idbvars.csh
+if ($version:r:r == 10) then
+  source $ASTROMAKE/opt/intel/fc/$version/bin/ifortvars.csh
+  source $ASTROMAKE/opt/intel/cc/$version/bin/iccvars.csh
+  source $ASTROMAKE/opt/intel/idb/$version/bin/idbvars.csh
   # somehow idb failed to install
   #source /opt/intel/idb/9.0/bin/idbvars.csh
 
