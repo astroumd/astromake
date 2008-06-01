@@ -49,9 +49,12 @@ else if (-e $mir/miriad_start.csh) then
   source $mir/miriad_start.csh
 
 else if (-e $mir/lib/miriad/automiriad.csh) then
-
-  echo TESTING new build
+  # this would be a new-build (might have no sources)
   source $mir/lib/miriad/automiriad.csh
+
+else if (-e $mir/automiriad.csh) then
+  # this would be a new-build in the recommended $MIR/build source tree
+  source $mir/automiriad.csh
 
 else
   echo "$mir does not contain a recognized miriad tree"
