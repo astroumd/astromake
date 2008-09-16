@@ -26,8 +26,21 @@ ploop:
   #					give a little bit of help
   if (X$package == X-h) then
     echo "Usage: astroload [-v version_id] package_name(s)"
+    echo "or:"
+    echo "Usage: astroload -i name"
     goto end
   endif
+
+  #					find -i option to info package
+  if (X$package == X-i) then
+    if ($#packages == 0) then
+	astromake versions
+	goto end
+    endif
+    astromake versions | grep -i $packages[1]
+    goto end
+  endif
+
   #					find -v option to select a version
   if (X$package == X-v) then
     if ($#packages == 0) then
