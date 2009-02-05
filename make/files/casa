@@ -1,0 +1,32 @@
+FTP=http://polaris3.cv.nrao.edu/casa/linux_distro/
+VERSION=20.0.5655-004
+FILE=casapy-$(VERSION).tar.gz
+SIZE=153.9MB
+
+
+URL=$(FTP)/$(FILE)
+
+
+NAME=casa
+ROOT=$(ASTROMAKE)/opt/casa
+
+help:
+	@echo $(NAME) $(VERSION) $(SIZE)
+
+url:
+	@echo http://casa.nrao.edu/
+
+all:	get install clean
+
+get:
+	wwwget $(URL)
+
+install:
+	@echo not supported
+
+clean:
+	rm -f $(FILE)
+
+remove:
+	rm -r $(ROOT)
+	rm -f $(ASTROMAKE)/status/$(NAME)
