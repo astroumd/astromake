@@ -17,7 +17,8 @@ else
 endif
 
 if (-e $dir/bin/$os) then
-  set path=($dir/bin/$os $dir/bin/scripts $path)
+  #set path=($dir/bin/$os $dir/bin/scripts $path)
+  set path=($dir/bin/$os $path)
   rehash
   setenv PKDGRAV $dir
 endif
