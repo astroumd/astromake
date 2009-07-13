@@ -11,7 +11,9 @@ if [ -z $pkg ]; then
 elif [ -d $ASTROMAKE/opt/$pkg ]; then
   echo checking $ASTROMAKE/opt/$pkg/VERSIONS
   if [ -e $ASTROMAKE/opt/$pkg/VERSIONS ]; then
+    export a_version=`head -1 $ASTROMAKE/opt/$pkg/VERSIONS`
     echo VERSIONS file found for $pkg
+    source $ASTROMAKE/rc/$pkg.sh
   else
     echo $ASTROMAKE/rc/$pkg.sh
     source $ASTROMAKE/rc/$pkg.sh
