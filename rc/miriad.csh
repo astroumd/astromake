@@ -56,6 +56,15 @@ else if (-e $mir/automiriad.csh) then
   # this would be a new-build in the recommended $MIR/build source tree
   source $mir/automiriad.csh
 
+else if (-e $mir/scripts/MIRRC.in) then
+  # this must be an ATNF version of miriad
+  if (-e $mir/MIRRC) then
+    source $mir/MIRRC
+    set path=($MIRBIN $path)
+    rehash
+  else
+    echo $mir/MIRRC missing, your install was not complete
+  endif
 else
   echo "$mir does not contain a recognized miriad tree"
   exit 1
