@@ -27,6 +27,9 @@ if ($?a_root) then
    else
 	set path=($a_root $path)
    endif
+   # hack for test versions with carmafiller
+   set path=($a_root/lib/casapy/bin $path)
+   setenv LD_LIBRARY_PATH $a_root/lib/:$LD_LIBRARY_PATH
    rehash
 endif
 
