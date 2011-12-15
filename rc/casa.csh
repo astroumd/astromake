@@ -22,14 +22,19 @@ else if (-e $dir/`cat $ASTROMAKE/status/casa`) then
 endif
 
 if ($?a_root) then
+   # hack for test versions with carmafiller
+   set path=($a_root/lib/casapy/bin $path)
+   if ($?LD_LIBRARY_PATH) then
+      setenv LD_LIBRARY_PATH $a_root/lib/:$LD_LIBRARY_PATH
+   else
+      setenv LD_LIBRARY_PATH $a_root/lib
+   endif
+   # add the main thing
    if ($path[1] == ".") then
 	set path=(. $a_root $path[2-])
    else
 	set path=($a_root $path)
    endif
-   # hack for test versions with carmafiller
-   set path=($a_root/lib/casapy/bin $path)
-   setenv LD_LIBRARY_PATH $a_root/lib/:$LD_LIBRARY_PATH
    rehash
 endif
 
