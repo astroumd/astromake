@@ -33,7 +33,7 @@ if ($?a_root) then
     set lib=lib
     if (`uname -m` == x86_64)  set lib=lib64
    if ($?LD_LIBRARY_PATH) then
-     setenv LD_LIBRARY_PATH $a_root/$lib:${LD_LIBRARY_PATH}
+     setenv LD_LIBRARY_PATH $a_root/${lib}:${LD_LIBRARY_PATH}
    else
      setenv LD_LIBRARY_PATH $a_root/$lib
    endif
