@@ -30,10 +30,12 @@ if ($?a_root) then
    rehash
 
    if (1) then
+    set lib=lib
+    if (`uname -m` == x86_64)  set lib=lib64
    if ($?LD_LIBRARY_PATH) then
-     setenv LD_LIBRARY_PATH $a_root/lib:${LD_LIBRARY_PATH}
+     setenv LD_LIBRARY_PATH $a_root/$lib:${LD_LIBRARY_PATH}
    else
-     setenv LD_LIBRARY_PATH $a_root/lib
+     setenv LD_LIBRARY_PATH $a_root/$lib
    endif
    endif
 
