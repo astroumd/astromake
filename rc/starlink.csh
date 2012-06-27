@@ -15,10 +15,16 @@ else
   goto err
 endif
 
+
+if (0) then
 echo STARLINK = $STARLINK_DIR
 set path=($STARLINK_DIR/bin $path)
 rehash
 setenv LD_LIBRARY_PATH $STARLINK_DIR/lib
+endif
+
+source $STARLINK_DIR/etc/login
+source $STARLINK_DIR/etc/cshrc
 
 err:
 
