@@ -17,7 +17,7 @@ if ($?a_root) then
    if ($?MANPATH) then
       setenv MANPATH $a_root/man:$MANPATH
    else
-      setenv MANPATH $a_root
+      setenv MANPATH $a_root/man
    endif
 
 endif
