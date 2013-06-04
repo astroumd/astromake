@@ -37,6 +37,7 @@ if ($?a_root) then
    endif
    rehash
    setenv CASADATA $a_root/data
+   setenv CASAPATH $a_root
 endif
 
 unset dir
