@@ -22,14 +22,7 @@ else if (-e $dir/`cat $ASTROMAKE/status/montage`) then
 endif
 
 if ($?a_root) then
-   # hack for test versions with carmafiller
    set path=($a_root/bin $path)
-   # add the main thing
-   if ($path[1] == ".") then
-	set path=(. $a_root $path[2-])
-   else
-	set path=($a_root $path)
-   endif
    rehash
 endif
 
