@@ -1,7 +1,8 @@
-# https://help.nrao.edu HLI-450002
+# https://help.nrao.edu HLI-450002  (now a deprecated ticket system)
+#
 #    Although the official way is to untar a casa tar ball and either
-#    use the absolute path path_to_casa/casapy, we do a little more
-#    here:
+#    use the absolute path path_to_casa/casapy, or add path_to_casa to
+#    your $PATH, we do a little more here:
 #       set CASAPATH to the root directory ($a_root)  [note CASA has a quad-convention]
 #       add $a_root                to $PATH
 #       add $a_root/lib/casapy/bin to $PATH
