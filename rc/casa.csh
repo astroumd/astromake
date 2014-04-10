@@ -1,4 +1,3 @@
-# https://help.nrao.edu HLI-450002  (now a deprecated ticket system)
 #
 #    Although the official way is to untar a casa tar ball and either
 #    use the absolute path path_to_casa/casapy, or add path_to_casa to
@@ -7,6 +6,8 @@
 #       add $a_root                to $PATH
 #       add $a_root/lib/casapy/bin to $PATH
 #       add $a_root/lib            to $LD_LIBRARY_PATH
+#
+# See also https://help.nrao.edu/index.php?/Tickets/Ticket/View/4777
 #
 set dir=$ASTROMAKE/opt/casa
 
