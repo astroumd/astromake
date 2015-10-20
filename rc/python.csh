@@ -20,6 +20,14 @@ else if (-e $dir/`cat $ASTROMAKE/status/$app_name`) then
   set a_root=$dir/`cat $ASTROMAKE/status/$app_name`
 endif
 
+
+# Test if this is a Ureke distro
+
+if (-d $a_root/iraf) then
+  # for now just echo
+  echo WARNING: this is a Ureke based python
+endif
+
 # Now make your environment modifications
 
 if !($?PATH) then
