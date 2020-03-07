@@ -17,17 +17,30 @@ else if (-e $dir/VERSIONS) then
   set version=`head -1 $dir/VERSIONS`
 else if (-e $dir/`cat $ASTROMAKE/status/intel`) then
   set version=`cat $ASTROMAKE/status/intel`
+else
+  set version=0
 endif
+
+#   should only echo if it's an interactive shell
+if ($?prompt) echo version=$version
 
 
 #----------------------------------------------------------------------
 # 10.0
 if ($version:r:r == 10) then
-  source $ASTROMAKE/opt/intel/fc/$version/bin/ifortvars.csh
-  source $ASTROMAKE/opt/intel/cc/$version/bin/iccvars.csh
-  source $ASTROMAKE/opt/intel/idb/$version/bin/idbvars.csh
+  set arch=`uname -m`
+  if ($arch == x86_64) then
+    set e=e
+  else
+    set e=""
+  endif
+  source $ASTROMAKE/opt/intel/fc$e/$version/bin/ifortvars.csh
+  source $ASTROMAKE/opt/intel/cc$e/$version/bin/iccvars.csh
+  source $ASTROMAKE/opt/intel/idb$e/$version/bin/idbvars.csh
   # somehow idb failed to install
   #source /opt/intel/idb/9.0/bin/idbvars.csh
+
+  setenv INTEL_LICENSE_FILE $dir/licenses/noncommercial_for_l_36127178.lic:$dir/licenses/noncommercial_cpp_l_45321397.lic
 
 #----------------------------------------------------------------------
 # 9.1
@@ -44,7 +57,7 @@ else if ($version == 90) then
   #source /opt/intel/fc/9.0/bin/ifortvars.csh
   #source /opt/intel/cc/9.0/bin/iccvars.csh
   #source /opt/intel/idb/9.0/bin/idbvars.csh
-  echo Not yet done
+  echo version 90 Not yet done
 
 #----------------------------------------------------------------------
 # 8.1
@@ -124,7 +137,7 @@ else
     echo Saving old setting as IA32_CURRENT_PATH and IA32_CURRENT_LD_LIBRARY_PATH
     setenv IA32_CURRENT_PATH $PATH
     setenv IA32_CURRENT_LD_LIBRARY_PATH $LD_LIBRARY_PATH
-    endif
+endif
 
 setenv IA32ROOT $ASTROMAKE/opt/intel/compiler70/ia32
 set    _manroot=$ASTROMAKE/opt/intel/compiler70/man
@@ -132,13 +145,13 @@ if !($?IA32_SAVE_PATH) then
     setenv PATH $IA32ROOT/bin
 else
     setenv PATH $IA32ROOT/bin:$IA32_SAVE_PATH
-    endif
+endif
 
 if !($?IA32_SAVE_LD_LIBRARY_PATH) then
     setenv LD_LIBRARY_PATH $IA32ROOT/lib
 else
     setenv LD_LIBRARY_PATH $IA32ROOT/lib:$IA32_SAVE_LD_LIBRARY_PATH
-    endif
+endif
 
 setenv INTEL_FLEXLM_LICENSE $ASTROMAKE/opt/intel/licenses
 
@@ -155,7 +168,14 @@ unset _manroot
 #--------------------------------------------------------------------------------
 # older compilers not supported
 else
-  echo Version $version not implemented for intel compiler
+  echo Version=$version not implemented for intel compiler
+  set path=($dir/bin $path)
+  if ($?LD_LIBRARY_PATH) then
+      setenv LD_LIBRARY_PATH $dir/lib/intel64:$LD_LIBRARY_PATH
+  else
+      setenv LD_LIBRARY_PATH $dir/lib/intel64
+  endif
 endif
 
 rehash
+
