@@ -7,8 +7,9 @@ export ASTROMAKE=@ASTROMAKE@
 
 export PATH=$ASTROMAKE/bin:$PATH
 
-alias astroload='source $ASTROMAKE/make/astroload.sh'
-alias astroloaded='source $ASTROMAKE/make/astroloaded.sh'
+#alias astroload='source $ASTROMAKE/make/astroload.sh'
+source $ASTROMAKE/make/astroload.sh
+#alias astroloaded='source $ASTROMAKE/make/astroloaded.sh'
 
 #   local deviations for the whole package
 for _file in $ASTROMAKE/.astromake  ~/.astromake
