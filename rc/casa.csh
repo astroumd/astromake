@@ -10,6 +10,8 @@
 #
 # See also https://help.nrao.edu/index.php?/Tickets/Ticket/View/4777
 #
+# TODO:   as of casa 5.4 LD_LIBRARY_PATH -> CASALD_LIBRARY_PATH
+#
 set dir = $ASTROMAKE/opt/casa
 
 # a_version is an astromake variable
@@ -48,6 +50,11 @@ if ($?a_root) then
 	set path=(. $a_root/bin $a_root $path[2-])
    else
 	set path=($a_root/bin $a_root $path)
+   endif
+   if (-d $a_root/etc/carta/notyet) then
+      echo Warning: loading CARTA
+      set path=($a_root/etc/carta/bin $path)
+      setenv LD_LIBRARY_PATH $a_root/etc/carta/lib:$LD_LIBRARY_PATH
    endif
    rehash
    # setenv CASADATA $a_root/data    # this appears useless, use CASAPATH 
