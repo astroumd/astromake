@@ -1,7 +1,8 @@
-#    ASTROMAKE V1.2 setup
+#    ASTROMAKE V2.x setup
 #    
 #   !! only edit this file if has the ".in" extension, and run "configure" !!
 #   !! again to create the actual version users will be using              !!
+#   (( yes, you can probably hack and edit the ASTROMAKE env var directly  ))
 #
 export ASTROMAKE=@ASTROMAKE@
 
