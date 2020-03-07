@@ -1,16 +1,29 @@
-See also:   http://www.iram.fr/IRAMFR/GILDAS/
+
+https://www.iram.fr/IRAMFR/GILDAS/
+
+http://www.iram.fr/~gildas/dist/index.html
+wget http://www.iram.fr/~gildas/dist/gildas-src-mar16a.tar.gz
+wget http://www.iram.fr/~gildas/dist/gildas-doc-mar16a.tar.gz
+
+now:
+   wget http://www.iram.fr/~gildas/dist/gildas-src-jun19c.tar.xz
+   wget http://www.iram.fr/~gildas/dist/gildas-doc-jun19c.tar.xz
+   tar -Jxf 
 
 
-grab the two tar balls, in my case
-   gildas-doc-dec07a.tar.gz 
-   gildas-src-dec07a.tar.gz
 
-
-tar zxf gildas-src-dec07a.tar.gz 
-cd gildas-src-dec07a
-astroload intel			need intel compiler
-sh				(bash doesn't inherit the shell??)
-source admin/gildas-env.sh 
-make
+tar -xvf gildas-src-mmmyya.tar  
+cd gildas-src-mmmyya  
+bash
+source admin/gildas-env.sh  
+make  -j 4              (takes long time, about an hour)
 make install
+cd ../gildas-exe-mmmyya
+tar zxf ../gildas-doc-mmmyya.tar.gz
+
+
+ln -s gildas-exe-jul14c jul14c
+astroload -v jul14c gildas
+
+should work, and update your VERSIONS file.
 
