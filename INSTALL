@@ -1,5 +1,3 @@
-  (see also $ASTROMAKE/make/README.pjt)
-
 
 First time install via github:
     git clone https://github.com/astroumd/astromake
@@ -8,13 +6,12 @@ First time install via github:
     make install
     source astromake_start.sh
 
+Now you can do things such as
 
     astroload miriad nemo
     astroload -v 1.5 aips++
-
-Typical queries which packages are available/installed in shell:
-
     astroload -v
+    astroload -i miriad
     astroloaded
 
 -- 
