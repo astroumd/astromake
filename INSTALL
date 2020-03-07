@@ -1,37 +1,13 @@
   (see also $ASTROMAKE/make/README.pjt)
 
 
-First time install via CVS:   (recommended)
-    cvs -d :pserver:guest@cvs.astro.umd.edu:/home/cvsroot login
-    (password: guest)
-    cvs -d :pserver:guest@cvs.astro.umd.edu:/home/cvsroot co astromake
+First time install via github:
+    git clone https://github.com/astroumd/astromake
     cd astromake
     ./configure
     make install
-    source astromake_start			(csh shell assumed !!!)
+    source astromake_start.sh
 
-First time install via a TARFILE:  (normally ftp.astro.umd.edu:/pub/astro)
-
-    tar zxf astromake_1.1beta.tar.gz
-    cd astromake_1.1beta
-    ./configure
-    make install
-    source astromake_start		  <--- add this equivalent also to your .cshrc file
-
-Upgrades via CVS:
-
-    make update
-
-Upgrades via a TARFILE:
-
-    (not really available yet)
-
-
-Typical installation of astromake packages:
-
-    astromake all pgplot miriad karma aips++
-
-Typical usage to load a package in a shell:
 
     astroload miriad nemo
     astroload -v 1.5 aips++
