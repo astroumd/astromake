@@ -1,5 +1,6 @@
 # astromake
-building and managing packages and optionally multiple versions
+
+Building and managing packages and optionally multiple versions of them. Slightly geared towards astronomy.
 
 This set of scripts allows you to manage loading packages in your unix shell, much like the module command. After
 installation users need to add something like this to your appropriate dot-file:
