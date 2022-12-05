@@ -6,7 +6,7 @@
 #
 set lib32 = $ASTROMAKE/opt/i386-linux-gnu
 
-setenv KARMABASE $ASTROMAKE/opt/karma/
+setenv KARMABASE $ASTROMAKE/opt/karma/karma-1.7.25
 source $KARMABASE/.login
 if ($?LD_LIBRARY_PATH) then
   setenv LD_LIBRARY_PATH ${LD_LIBRARY_PATH}:$KARMABASE/lib:$lib32
