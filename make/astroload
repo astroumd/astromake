@@ -1,3 +1,4 @@
+#   -*-  csh -*-
 #---do not execute- this code needs to be sourced (normally via an alias)
 #
 #   A shell variable 'a_version' will be exported to the package startup

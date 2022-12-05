@@ -1,3 +1,4 @@
+#     -*-  bash  -*-
 #
 # -v version pkg       load a specific version of a package
 # -i pkg               list all versions a package has
@@ -20,7 +21,7 @@ astroload() {
 	    -i)
 		a_pkg="$2"   
 	        if [ -e $ASTROMAKE/opt/$a_pkg/VERSIONS ]; then
-		    echo The following version found for $a_pkg
+		    echo The following versions found for $a_pkg
 		    grep -v ^# $ASTROMAKE/opt/$a_pkg/VERSIONS
 		fi
 		shift
@@ -36,12 +37,12 @@ astroload() {
 		    echo 'ALARM: empty pkg?'
 		elif [ -d $a_dir ]; then
 		    if [ -z ${a_version+x} ]; then
-			if [ -e $ASTROMAKE/status/$a_pkg ]; then
-			    a_version=`cat $ASTROMAKE/status/$a_pkg`
-			    # echo status file found for $a_pkg with $a_version
-			elif [ -e $ASTROMAKE/opt/$a_pkg/VERSIONS ]; then
+			if [ -e $ASTROMAKE/opt/$a_pkg/VERSIONS ]; then
 			    a_version=`grep -v ^# $ASTROMAKE/opt/$a_pkg/VERSIONS | head -1`
 			    echo VERSIONS file found for $a_pkg with $a_version
+			elif [ -e $ASTROMAKE/status/$a_pkg ]; then
+			    a_version=`cat $ASTROMAKE/status/$a_pkg`
+			    # echo status file found for $a_pkg with $a_version
 			else
 			    a_version="unknown"
 			fi
@@ -49,7 +50,8 @@ astroload() {
 		    echo Loading $a_pkg version $a_version
 		    source $ASTROMAKE/rc/$a_pkg.sh
 		else
-		    echo Skipping unknown package $a_pkg
+		    echo Skipping unknown package $a_pkg.  Known packages:
+		    ls $ASTROMAKE/status
 		fi
 		unset a_pkg
 		unset a_version
