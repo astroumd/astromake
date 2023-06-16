@@ -20,6 +20,7 @@ elif [ -e $dir/`cat $ASTROMAKE/status/$pkg` ]; then
 
 fi
 
+export CLOUDY_DATA_PATH=$a_root/data
 
 if [ -e ${a_root} ]; then
     echo Found ${a_root}

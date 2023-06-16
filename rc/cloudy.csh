@@ -25,6 +25,8 @@ else if (-e $dir/`cat $ASTROMAKE/status/$pkg`) then
 
 endif
 
+setenv CLOUDY_DATA_PATH $a_root/data
+
 if (-e $a_root) then
    echo Found $a_root
    set path=($a_root/source $path)
